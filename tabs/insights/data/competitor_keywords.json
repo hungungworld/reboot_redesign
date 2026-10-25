@@ -1,0 +1,17 @@
+{
+  "_설명": "경쟁사 분석용 검색어. keywords = Amazon 검색어 11개의 역할 (2026-10-24 팀 결정 · Amazon 검색 26개 후보 검증 후 고정, 실제 수집 목록은 설정 › 수집 설정 › Amazon 검색어). 대체재 검색어로만 나온 브랜드는 '대체재'로 따로 둠. yami_queries = Yami 검색어 (검색 결과 첫 페이지, 1개당 Firecrawl 1크레딧)",
+  "keywords": [
+    {"keyword": "hangover supplement", "role": "대표"},
+    {"keyword": "hangover drink", "role": "대표"},
+    {"keyword": "korean hangover", "role": "대표"},
+    {"keyword": "hangover liquid shot", "role": "제형"},
+    {"keyword": "hangover gummies", "role": "제형"},
+    {"keyword": "hangover relief powder", "role": "제형"},
+    {"keyword": "DHM supplement", "role": "제형"},
+    {"keyword": "before drinking supplement", "role": "타이밍"},
+    {"keyword": "hangover recovery drink", "role": "타이밍"},
+    {"keyword": "electrolyte drink hangover", "role": "대체재"},
+    {"keyword": "liver support supplement", "role": "대체재"}
+  ],
+  "yami_queries": ["hangover", "hangover jelly"]
+}

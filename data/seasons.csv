@@ -1,0 +1,14 @@
+name,start_date,end_date,category,priority,lead_days,notes
+Halloween,2026-10-31,2026-10-31,holiday,2,21,
+Thanksgiving Eve,2026-11-25,2026-11-25,holiday,1,30,연중 최대 음주일 중 하나
+Christmas,2026-12-25,2026-12-25,holiday,2,30,연말 파티 시즌
+New Year's Eve,2026-12-31,2026-12-31,holiday,1,30,
+Mardi Gras,2027-02-09,2027-02-09,occasion,3,21,
+Super Bowl LXI,2027-02-14,2027-02-14,sports,1,30,
+St. Patrick's Day,2027-03-17,2027-03-17,holiday,2,30,
+Cinco de Mayo,2027-05-05,2027-05-05,occasion,3,21,
+Memorial Day Weekend,2027-05-29,2027-05-31,holiday,2,30,연휴 주말
+Independence Day,2027-07-04,2027-07-04,holiday,2,30,
+Labor Day Weekend,2027-09-04,2027-09-06,holiday,3,21,연휴 주말
+Halloween,2027-10-31,2027-10-31,holiday,2,21,
+Thanksgiving Eve,2027-11-24,2027-11-24,holiday,1,30,

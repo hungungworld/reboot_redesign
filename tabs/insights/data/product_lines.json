@@ -1,0 +1,11 @@
+{
+  "_설명": "같은 제품 라인 묶기용 브랜드 별칭 (lines.py). aliases = 상품명 · 브랜드 칸에서 찾는 정규식 (소문자 비교). forms = 이 브랜드가 실제로 파는 제형, default = 상품명이 '음료 · 분말'처럼 잘못 적혀 있을 때 쓸 제형. 처음 목록은 2026-10-24 Amazon 진열대 8개를 보고 만듦 — 새 브랜드는 진열대 표에서 묶음을 고치면 기억됨.",
+  "brands": [
+    {"name": "상쾌환", "aliases": ["easy[\\s-]*tomorrow", "상쾌환", "\\bq\\.?\\s?one\\b"], "forms": ["pellet", "gummy"], "default": "pellet"},
+    {"name": "컨디션", "aliases": ["컨디션", "\\bcondition\\b"], "forms": ["liquid", "pellet", "gummy"], "default": "liquid"},
+    {"name": "Morning Recovery", "aliases": ["morning recovery", "more labs"], "forms": ["liquid"], "default": "liquid"},
+    {"name": "Himalaya PartySmart", "aliases": ["party\\s?smart"], "forms": ["tablet"], "default": "tablet"},
+    {"name": "ZBiotics", "aliases": ["zbiotics"], "forms": ["liquid"], "default": "liquid"},
+    {"name": "Cheers", "aliases": ["\\bcheers\\b"], "forms": ["liquid", "tablet", "gummy"], "default": "tablet"}
+  ]
+}

@@ -1,0 +1,21 @@
+﻿copy,channel,product,expect,note,english_example
+리부트 젤리 오리지널: 라임·체리·레몬 맛 젤리 스틱 10개입,amazon,jelly,PASS,제품 사실,"Reboot Jelly Original: lime, cherry and lemon jelly sticks, 10 per box."
+가방에 쏙 넣어 다니는 개별 포장 젤리 스틱,b2c,jelly,PASS,포장 사실,Individually wrapped jelly sticks you can toss in your bag.
+메이드 인 코리아. 밤을 즐기는 사람들이 사랑하는 맛,b2c,all,PASS,원산지·분위기,Made in Korea. Loved by night owls everywhere.
+헛개나무 열매 추출물 함유,amazon,all,PASS,성분 사실만,Contains Hovenia dulcis fruit extract.
+상큼한 시트러스 젤리 스틱으로 Restart Your Day,b2c,jelly-ls,PASS,슬로건,Restart Your Day with a bright citrus jelly stick.
+리부트 드링크 밸런스: 작은 병에 담은 비탄산 레몬 음료,amazon,drink-ls,PASS,제품 사실,Reboot Drink Balance: a non-carbonated lemon drink in a small bottle.
+젤리 스틱 하나로 숙취와 작별하세요,all,all,BLOCK,R2 숙취,Say goodbye to hangovers with one jelly stick.
+파티 전에 간을 보호하세요,b2c,jelly,BLOCK,R3 간 보호,Protects your liver before the party.
+"헛개나무, 한국 전통 숙취 해소제",amazon,all,BLOCK,R1 치료 · R2,"Hovenia dulcis, Korea's traditional hangover cure."
+술자리 홍조는 이제 그만,b2c,drink,BLOCK,R4 홍조,No more Asian glow at the bar.
+별점 5개 리뷰를 남기면 한 박스 무료 증정!,all,all,BLOCK,R10 보상 후기,Get a free box when you leave a 5-star review!
+임상으로 연구한 한국 포뮬러,b2b,all,REVIEW,R9 임상 · B2B 자료라 검토 필요 (B2C면 수정 필요),Clinically studied Korean formula.
+매번 효과 보장,amazon,jelly,REVISE,R5 효과 보장,Guaranteed to work every time.
+밤새 마셔도 아침엔 거뜬하게,b2c,drink,REVISE,R6 음주 조장,"Drink all night, wake up ready."
+의사가 처방하듯 만든 파티용 젤리 스틱,b2c,jelly,REVISE,R7 의약품 오인,Doctor-formulated jelly stick for party lovers.
+몸이 알코올 분해를 더 빨리 하도록 도와줘요,all,all,REVISE,R8 알코올 분해,Helps your body process alcohol faster.
+헛개나무 추출물 듬뿍,amazon,jelly-ls,REVIEW,R13 성분 강조,Packed with Hovenia dulcis extract.
+한국산 DHM 파워,b2c,all,REVIEW,R13 숙취 연상 성분,Powered by DHM from Korea.
+고객들이 계속 별점 5개 후기를 남기는 이유,cs,all,REVIEW,R10 후기,See why our customers keep leaving 5-star reviews.
+생일 저녁 먹고 나서 먹어 봤는데 다음 날 아침 정말 개운했어요,b2c,drink-ls,REVIEW,R10 1인칭 후기,I tried it after my birthday dinner and felt great the next morning.

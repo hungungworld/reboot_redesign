@@ -1,0 +1,291 @@
+/* 인플루언서 · 파트너 — .part-partners 안에서만. 접두사: 대표 ptn- · outreach ptn-out- · records ptn-rec-
+   base.css 클래스(card · kpis · tabs · chips · seg · data-table · workbench …)는 다시 정의하지 않고 가져다 씀.
+   시안(REBOOT — Marketing Workspace)의 partner-hero · partner-detail · partner-stats · kanban · kanban-col · mini-card 값을
+   ptn-out-hero · ptn-out-detail · ptn-out-stats · ptn-rec-kanban · ptn-rec-col · ptn-rec-card로 옮겼습니다.
+   모달(document.body 아래)의 본문 요소에도 part-partners 클래스를 붙여 이 범위를 씁니다. */
+
+/* ───────── 색 (다크 모드는 변수만 바뀜) ───────── */
+/* 시안 v3 무채색 값 (partner-hero #202126 · partner-detail #f0f0f5 · initial #eeeaf0) */
+.part-partners {
+  --ptn-hero-bg: #202126; --ptn-hero-ink: #f2f2f5; --ptn-hero-muted: #999aa4; --ptn-hero-track: #38393e;
+  --ptn-detail-bg: #f0f0f5; --ptn-detail-line: #e2e2ea; --ptn-detail-av: #e4e4ec; --ptn-detail-av-ink: #6c6d78; --ptn-stat-label: #8a8b95;
+  --ptn-col-bg: #f0f0f5; --ptn-card-line: #e5e5ed; --ptn-card-sub: #8a8b95;
+  --ptn-av0: #eeeaf0; --ptn-av1: #ebedf2; --ptn-av2: #f0eee6; --ptn-av3: #eaeff0; --ptn-av4: #f1efe9; --ptn-av-ink: #7d7080;
+  --ptn-mark: #eef77a;
+  --ptn-chart: #5f6b00;   /* 차트 단일 계열 (흰 배경 대비 3:1 이상) */
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .part-partners {
+    --ptn-hero-bg: #232429; --ptn-hero-track: #393a42;
+    --ptn-detail-bg: #202125; --ptn-detail-line: #2e2f36; --ptn-detail-av: #2b2f13; --ptn-detail-av-ink: #d4ea2a; --ptn-stat-label: #8e8f99;
+    --ptn-col-bg: #18191c; --ptn-card-line: #2e2f36; --ptn-card-sub: #8e8f99;
+    --ptn-av0: #2e2a31; --ptn-av1: #2a2b33; --ptn-av2: #302d26; --ptn-av3: #272d30; --ptn-av4: #2f2c27; --ptn-av-ink: #c9b9c6;
+    --ptn-mark: #4d5512;
+    --ptn-chart: #c8dc31;
+  }
+}
+:root[data-theme="dark"] .part-partners {
+  --ptn-hero-bg: #232429; --ptn-hero-track: #393a42;
+  --ptn-detail-bg: #202125; --ptn-detail-line: #2e2f36; --ptn-detail-av: #2b2f13; --ptn-detail-av-ink: #d4ea2a; --ptn-stat-label: #8e8f99;
+  --ptn-col-bg: #18191c; --ptn-card-line: #2e2f36; --ptn-card-sub: #8e8f99;
+  --ptn-av0: #2e2a31; --ptn-av1: #2a2b33; --ptn-av2: #302d26; --ptn-av3: #272d30; --ptn-av4: #2f2c27; --ptn-av-ink: #c9b9c6;
+  --ptn-mark: #4d5512;
+  --ptn-chart: #c8dc31;
+}
+
+/* ───────── 대표 (ptn-) : 탭 틀 · 공통 조각 ───────── */
+.part-partners .ptn-tabs { margin-bottom: 22px; }
+.part-partners .ptn-panel { min-height: 320px; }
+.part-partners .ptn-skel { min-height: 320px; }
+.part-partners .ptn-skel-sm { min-height: 60px; }
+.part-partners .ptn-skel-hero { min-height: 150px; opacity: .85; }
+.part-partners .initial.ptn-av0 { background: var(--ptn-av0); color: var(--ptn-av-ink); }
+.part-partners .initial.ptn-av1 { background: var(--ptn-av1); color: var(--ptn-av-ink); }
+.part-partners .initial.ptn-av2 { background: var(--ptn-av2); color: var(--ptn-av-ink); }
+.part-partners .initial.ptn-av3 { background: var(--ptn-av3); color: var(--ptn-av-ink); }
+.part-partners .initial.ptn-av4 { background: var(--ptn-av4); color: var(--ptn-av-ink); }
+
+/* ───────── outreach (ptn-out-) : 업체 컨택 ───────── */
+.part-partners .ptn-out-hero {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; background: var(--ptn-hero-bg); color: var(--ptn-hero-ink);
+  padding: 28px; border-radius: 15px; margin-bottom: 24px;
+}
+.part-partners .ptn-out-hero h3 { color: var(--ptn-hero-ink); font-size: 13px; font-weight: 600; }
+.part-partners .ptn-out-hero .number { font-size: 32px; margin: 15px 0 8px; font-weight: 650; line-height: 1.1; letter-spacing: -1px; }
+.part-partners .ptn-out-hero .number .small { font-size: 12px; font-weight: 500; letter-spacing: 0; }
+.part-partners .ptn-out-hero p { font-size: 11px; color: var(--ptn-hero-muted); }
+.part-partners .ptn-out-hero .progress-track { background: var(--ptn-hero-track); margin-top: 17px; }
+.part-partners .ptn-out-hero .progress-track i { background: var(--lime); }
+.part-partners .ptn-out-lime { color: var(--lime); }
+
+.part-partners .ptn-out-import { margin-top: 22px; }
+.part-partners .ptn-out-import > summary { cursor: pointer; list-style: none; flex-wrap: wrap; gap: 8px; }
+.part-partners .ptn-out-import > summary::-webkit-details-marker { display: none; }
+.part-partners .ptn-out-import > summary h2::before { content: "▸ "; color: var(--muted, #888); }
+.part-partners .ptn-out-import[open] > summary h2::before { content: "▾ "; }
+.part-partners .ptn-out-import:not([open]) > summary { margin-bottom: 0; }
+.part-partners .ptn-out-import.is-empty { border-style: dashed; border-color: var(--lime-soft-line); }
+.part-partners .ptn-out-drop { min-height: 180px; cursor: pointer; }
+.part-partners .ptn-out-drop strong { color: var(--ink); font-size: 13px; }
+.part-partners .ptn-out-drop:focus-within,
+.part-partners .ptn-out-attdrop:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.part-partners .ptn-out-picked:empty { display: none; }
+
+.part-partners .ptn-out-bar { margin-bottom: 16px; }
+.part-partners .ptn-out-count { font-size: 12px; color: var(--muted); }
+.part-partners .ptn-out-count b { color: var(--ink); font-weight: 650; }
+.part-partners .ptn-out-bench { grid-template-columns: minmax(0, 1fr) 300px; }
+.part-partners .ptn-out-listcard { padding: 15px; }
+.part-partners .ptn-out-filterbox { display: grid; gap: 10px; padding: 4px 4px 14px; border-bottom: 1px solid var(--line-3); margin-bottom: 6px; }
+.part-partners .ptn-out-frow { display: flex; gap: 12px; align-items: flex-start; }
+.part-partners .ptn-out-flabel { flex: 0 0 84px; font-size: 11px; color: var(--muted); padding-top: 8px; }
+.part-partners .ptn-out-search { margin-top: 4px; }
+.part-partners .ptn-out-tablewrap { max-height: 640px; }
+.part-partners .ptn-out-table td { vertical-align: middle; }
+.part-partners .ptn-out-who { gap: 10px; min-width: 200px; }
+.part-partners .ptn-out-name { line-height: 1.4; min-width: 0; }
+.part-partners .ptn-out-name small { display: block; font-size: 10px; color: var(--faint); margin-top: 4px; font-weight: 400; }
+.part-partners .ptn-out-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.part-partners .ptn-out-tag { font-size: 10px; padding: 3px 7px; border-radius: 5px; background: var(--soft); color: var(--text); white-space: nowrap; }
+.part-partners .ptn-out-emailbtn { font-size: 12px; color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--lime-line); text-underline-offset: 3px; gap: 6px; }
+.part-partners .ptn-out-emailbtn .icon { width: 14px; height: 14px; color: var(--muted-2); }
+.part-partners .ptn-out-foot { padding: 14px 10px 0; }
+
+.part-partners .ptn-out-detail {
+  background: var(--ptn-detail-bg); border-radius: 12px; padding: 22px; min-width: 0;
+  position: sticky; top: calc(var(--topbar-h) + 16px); max-height: calc(100vh - var(--topbar-h) - 32px); overflow: auto;
+}
+.part-partners .ptn-out-detail .initial { width: 56px; height: 56px; font-size: 18px; background: var(--ptn-detail-av); color: var(--ptn-detail-av-ink); }
+.part-partners .ptn-out-detail .empty-art { background: transparent; border-color: var(--ptn-detail-line); }
+.part-partners .ptn-out-dname { margin: 17px 0 6px; font-size: 20px; line-height: 1.3; }
+.part-partners .ptn-out-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 25px 0; }
+.part-partners .ptn-out-stats strong { font-size: 22px; display: block; margin-bottom: 6px; line-height: 1.2; }
+.part-partners .ptn-out-stats strong.is-text { font-size: 13px; }
+.part-partners .ptn-out-stats small { font-size: 10px; color: var(--ptn-stat-label); }
+.part-partners .ptn-out-info { border-top: 1px solid var(--ptn-detail-line); }
+.part-partners .ptn-out-info .row { border-bottom-color: var(--ptn-detail-line); }
+.part-partners .ptn-out-info .row > span:last-child { text-align: right; min-width: 0; overflow-wrap: anywhere; }
+.part-partners .ptn-out-block { border-top: 1px solid var(--ptn-detail-line); padding-top: 16px; margin-top: 16px; }
+.part-partners .ptn-out-block h3 { font-size: 12px; margin-bottom: 8px; }
+.part-partners .ptn-out-block p { font-size: 12px; }
+.part-partners .ptn-out-detail .activity li::before { border-color: var(--ptn-detail-bg); }
+
+/* ───────── outreach (ptn-out-) : 협업 메일 · 협업 가이드 ───────── */
+.part-partners .ptn-out-statusline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 14px; }
+.part-partners .ptn-out-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; padding: 5px 10px; border-radius: 999px; background: var(--soft); color: var(--muted); }
+.part-partners .ptn-out-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--faint); flex-shrink: 0; }
+.part-partners .ptn-out-pill.is-on { background: var(--green-bg); color: var(--green); }
+.part-partners .ptn-out-pill.is-on::before { background: var(--green); }
+.part-partners .ptn-out-pill .link { font-size: 11px; text-decoration: underline; }
+.part-partners .ptn-out-subbar { margin-bottom: 18px; flex-wrap: wrap; }
+.part-partners .ptn-out-subbar .seg button { font-size: 12px; padding: 7px 14px; }
+
+.part-partners .ptn-out-prompt { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; background: var(--surface-2); }
+.part-partners .ptn-out-prompt > summary { cursor: pointer; font-size: 12px; font-weight: 600; }
+.part-partners .ptn-out-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 14px 0 12px; padding: 12px; border-radius: 10px; background: var(--lime-wash); }
+.part-partners .ptn-out-steps-title { font-size: 11px; font-weight: 650; margin-right: 6px; color: var(--ink-2); }
+.part-partners .ptn-out-step { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; padding: 4px 9px 4px 4px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-2); }
+.part-partners .ptn-out-step b { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; background: var(--night); color: var(--lime); }
+.part-partners .ptn-out-arrow { color: var(--faint); font-size: 11px; }
+.part-partners .ptn-out-prompttext { min-height: 180px; }
+.part-partners .ptn-out-wrap { align-items: flex-start; flex-wrap: wrap; }
+.part-partners .ptn-out-wrap .hint { flex: 1 1 320px; margin: 0; }
+.part-partners .ptn-out-period { flex-wrap: wrap; }
+.part-partners .ptn-out-period .input { width: auto; flex: 1 1 150px; }
+.part-partners .ptn-out-body { min-height: 300px; font-size: 13px; line-height: 1.7; }
+.part-partners .ptn-out-pre,
+.part-partners .ptn-rec-pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; font-size: 12px; line-height: 1.7; margin: 0; color: var(--text); max-height: 320px; overflow: auto; }
+.part-partners .ptn-out-ko { background: var(--surface-2); }
+.part-partners .ptn-out-attdrop { min-height: 100px; cursor: pointer; }
+.part-partners .ptn-out-attdrop.is-busy { opacity: .6; pointer-events: none; }
+.part-partners .ptn-out-attlist { list-style: none; margin: 12px 0 0; padding: 0; }
+.part-partners .ptn-out-att { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line-3); }
+.part-partners .ptn-out-att:last-child { border-bottom: 0; }
+.part-partners .ptn-out-att .check { flex: 1; min-width: 0; }
+.part-partners .ptn-out-att .check span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.part-partners .ptn-out-iconbtn { width: 30px; height: 30px; text-decoration: none; }
+.part-partners .ptn-out-send { border-color: var(--lime-soft-line); }
+.part-partners .ptn-out-aside { position: sticky; top: calc(var(--topbar-h) + 16px); }
+.part-partners .ptn-out-tips { margin: 0; padding-left: 18px; font-size: 11px; color: var(--muted); line-height: 1.8; }
+.part-partners .ptn-out-findings { list-style: none; margin: 0; padding: 0; }
+.part-partners .ptn-out-findings li { padding: 12px 0; border-bottom: 1px solid var(--line-3); }
+.part-partners .ptn-out-findings li:last-child { border-bottom: 0; }
+.part-partners .ptn-out-findings mark { background: var(--ptn-mark); color: inherit; padding: 0 3px; border-radius: 3px; }
+.part-partners .ptn-out-reply { border-color: var(--lime-soft-line); background: var(--lime-wash); }
+.part-partners .ptn-out-quote { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.part-partners .ptn-out-quote > summary { cursor: pointer; }
+
+.part-partners .ptn-out-sections { margin: 0; padding-left: 18px; font-size: 12px; }
+.part-partners .ptn-out-sections li { margin-bottom: 8px; }
+.part-partners .ptn-out-sections small { display: block; color: var(--muted); font-size: 10px; }
+.part-partners .ptn-out-terms { display: flex; flex-wrap: wrap; gap: 5px; }
+.part-partners .ptn-out-term { font-size: 10px; padding: 3px 7px; border-radius: 5px; background: var(--red-bg); color: var(--red); }
+.part-partners .ptn-out-prose { border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; background: var(--surface); max-height: 720px; overflow: auto; }
+.part-partners .ptn-out-mdedit { min-height: 480px; }
+.part-partners .ptn-out-gcheck { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.part-partners .ptn-out-gcheck > summary { cursor: pointer; font-size: 12px; font-weight: 600; }
+.part-partners .ptn-out-gactions { padding-top: 16px; border-top: 1px solid var(--line-3); }
+
+/* ───────── records (ptn-rec-) : 협업 이력 ───────── */
+.part-partners .ptn-rec-bar { margin-bottom: 16px; }
+.part-partners .ptn-rec-sel .input { width: auto; min-width: 200px; max-width: 280px; padding: 8px 10px; }
+.part-partners .ptn-rec-tablecard .table-wrap { max-height: 70vh; }
+.part-partners .ptn-rec-table td { vertical-align: middle; }
+.part-partners .ptn-rec-chk { width: 36px; }
+.part-partners .ptn-rec-chk input { width: 16px; height: 16px; accent-color: #9cc20e; margin: 0; }
+.part-partners .ptn-rec-edit { width: 84px; text-align: right; }
+.part-partners .ptn-rec-count { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 8px; background: var(--soft-2); font-size: 10px; color: var(--muted); vertical-align: 1px; }
+.part-partners .ptn-rec-sub { display: block; font-size: 10px; color: var(--faint); font-weight: 400; margin-top: 3px; }
+.part-partners .ptn-rec-replybtn { border-radius: 5px; }
+.part-partners .ptn-rec-replybtn .badge { cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.part-partners .ptn-rec-replybtn:hover .badge { filter: brightness(.95); }
+.part-partners .ptn-rec-clip { min-width: 160px; white-space: normal; overflow-wrap: anywhere; }
+.part-partners .ptn-rec-memo { min-width: 180px; white-space: pre-line; overflow-wrap: anywhere; font-size: 11px; }
+.part-partners .ptn-rec-err { display: block; color: var(--red); margin-top: 4px; }
+.part-partners .ptn-rec-foot { padding: 12px 16px; }
+
+/* 모달 본문 (편집 · 표시 항목 · 회신 창) */
+.part-partners .ptn-rec-cols { list-style: none; margin: 0; padding: 0; }
+.part-partners .ptn-rec-cols li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line-3); }
+.part-partners .ptn-rec-mv { width: 28px; height: 28px; font-size: 12px; }
+.part-partners .ptn-rec-mv:disabled { opacity: .35; }
+.part-partners .ptn-rec-reply { align-items: start; }
+.part-partners .ptn-rec-rmeta { padding: 14px; border-radius: 10px; background: var(--soft-2); border: 1px solid var(--line); }
+.part-partners .ptn-rec-rmeta p { margin-top: 6px; }
+.part-partners .ptn-rec-summary { border: 1px solid var(--lime-soft-line); background: var(--lime-wash); border-radius: 10px; padding: 14px; }
+.part-partners .ptn-rec-dl { display: grid; grid-template-columns: 74px 1fr; gap: 8px 12px; margin: 12px 0 8px; font-size: 12px; }
+.part-partners .ptn-rec-dl dt { color: var(--muted); font-weight: 600; }
+.part-partners .ptn-rec-dl dd { margin: 0; color: var(--ink); }
+.part-partners .ptn-rec-pre { background: var(--soft-2); border-radius: 8px; padding: 10px 12px; margin-top: 8px; }
+
+/* 협업 보드 (시안 kanban · kanban-col · mini-card) */
+.part-partners .ptn-rec-kanban { display: grid; grid-template-columns: repeat(6, minmax(190px, 1fr)); gap: 16px; overflow-x: auto; padding-bottom: 6px; }
+.part-partners .ptn-rec-col { background: var(--ptn-col-bg); border-radius: 12px; padding: 15px; min-height: 390px; min-width: 0; }
+.part-partners .ptn-rec-col > h3 { font-size: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 18px; }
+.part-partners .ptn-rec-card {
+  display: block; width: 100%; text-align: left; padding: 17px; background: var(--surface); border: 1px solid var(--ptn-card-line);
+  border-radius: 10px; margin-bottom: 12px; cursor: pointer; transition: border-color .15s;
+}
+.part-partners .ptn-rec-card:hover { border-color: var(--lime-soft-line); }
+.part-partners .ptn-rec-cardhead { margin-bottom: 13px; gap: 8px; }
+.part-partners .ptn-rec-cardhead strong { font-size: 12px; line-height: 1.35; min-width: 0; overflow-wrap: anywhere; }
+.part-partners .ptn-rec-card p { font-size: 12px; font-weight: 550; }
+.part-partners .ptn-rec-card small { display: block; font-size: 10px; color: var(--ptn-card-sub); margin-top: 10px; }
+.part-partners .ptn-rec-cardfoot { margin-top: 13px; }
+.part-partners .ptn-rec-colempty { font-size: 11px; color: var(--faint); text-align: center; padding: 18px 0; }
+
+/* ───────── records (ptn-rec-) : 판매 실적 ───────── */
+.part-partners .ptn-rec-salesbar { margin-bottom: 18px; }
+.part-partners .ptn-rec-date { width: auto; padding: 7px 9px; }
+.part-partners .ptn-rec-chart { position: relative; height: 300px; }
+.part-partners .ptn-rec-daily { max-height: 280px; margin-top: 8px; }
+.part-partners .ptn-rec-salestable code { font-size: 11px; background: var(--soft); padding: 2px 6px; border-radius: 4px; }
+
+/* ───────── 반응형 ───────── */
+@media (max-width: 1200px) {
+  .part-partners .ptn-out-bench { grid-template-columns: minmax(0, 1fr) 270px; }
+}
+@media (max-width: 950px) {
+  .part-partners .ptn-out-bench { grid-template-columns: 1fr; }
+  .part-partners .ptn-out-detail,
+  .part-partners .ptn-out-aside { position: static; max-height: none; }
+}
+@media (max-width: 720px) {
+  .part-partners .ptn-out-hero { gap: 12px; padding: 20px; }
+  .part-partners .ptn-out-hero .number { font-size: 25px; }
+  .part-partners .ptn-out-hero h3 { font-size: 12px; }
+  .part-partners .ptn-out-frow { flex-direction: column; gap: 6px; }
+  .part-partners .ptn-out-flabel { flex: none; padding: 0; }
+  .part-partners .ptn-rec-sel .input { min-width: 0; max-width: 100%; }
+  .part-partners .ptn-rec-kanban { grid-template-columns: repeat(6, 78vw); }
+}
+@media (max-width: 480px) {
+  .part-partners .ptn-out-hero { grid-template-columns: 1fr; }
+}
+@media print {
+  .part-partners .ptn-tabs, .part-partners .ptn-out-bar, .part-partners .ptn-rec-bar, .part-partners .ptn-rec-salesbar .period { display: none !important; }
+}
+.part-partners .ptn-rec-pop, .ptn-rec-pop { position: absolute; z-index: 60; padding: 14px 16px; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+.ptn-rec-pop p { margin: 6px 0 0; }
+.ptn-rec-pop .ptn-rec-pop-text { color: var(--text); line-height: 1.5; max-height: 7.5em; overflow: hidden; }
+
+/* 판매 실적: 일별 추이 위 상승률 (상승 빨강 · 하락 파랑) · 크리에이터별 실적 접기 */
+.part-partners .ptn-rec-change { margin: -6px 0 8px; font-size: 12px; min-height: 1em; }
+.part-partners .ptn-rec-change ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; }
+.part-partners .ptn-rec-change li { display: inline-flex; align-items: center; gap: 5px; }
+.part-partners .ptn-rec-change li i { width: 10px; height: 3px; border-radius: 2px; }
+.part-partners .ptn-rec-change b { font-weight: 600; color: var(--red); }
+.part-partners .ptn-rec-change li.down b { color: var(--blue); }
+.part-partners .ptn-rec-change span, .part-partners .ptn-rec-change small { color: var(--muted); }
+.part-partners .ptn-rec-change small { display: block; margin-top: 2px; font-size: 11px; }
+.part-partners details.ptn-rec-salestable > summary { cursor: pointer; list-style: none; }
+.part-partners details.ptn-rec-salestable > summary::-webkit-details-marker { display: none; }
+.part-partners details.ptn-rec-salestable > summary h2::before { content: '▾'; display: inline-block; margin-right: 6px; font-size: .8em; transition: transform .15s; }
+.part-partners details.ptn-rec-salestable:not([open]) > summary h2::before { transform: rotate(-90deg); }
+.part-partners details.ptn-rec-salestable:not([open]) > summary { margin-bottom: 0; }
+
+/* 협업 이력: 업체 이름 → 메일 히스토리 창 */
+.part-partners .ptn-rec-who { all: unset; cursor: pointer; border-radius: 4px; }
+.part-partners .ptn-rec-who:hover strong { text-decoration: underline; text-underline-offset: 2px; }
+.part-partners .ptn-rec-who:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.part-partners .ptn-thread { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.part-partners .ptn-thread-item { border: 1px solid var(--line); border-left: 3px solid var(--line); border-radius: 8px; padding: 10px 12px; max-width: 88%; }
+.part-partners .ptn-thread-item.out { justify-self: end; border-left-color: var(--ptn-chart, #637c13); }
+.part-partners .ptn-thread-item.in { justify-self: start; border-left-color: var(--blue); background: var(--surface-2); }
+
+/* 협업 이력 · 크리에이터별 실적 표: 머리글 끝을 끌어 칸 너비 조절 */
+.part-partners .ptn-col-grip { position: absolute; top: 0; right: -4px; width: 8px; height: 100%; cursor: col-resize; z-index: 2; touch-action: none; }
+.part-partners .ptn-col-grip::after { content: ''; position: absolute; top: 25%; bottom: 25%; left: 3px; width: 2px; border-radius: 1px; background: var(--line); opacity: 0; transition: opacity .12s; }
+.part-partners .ptn-rec-table th[data-col]:hover .ptn-col-grip::after,
+.part-partners .ptn-rec-table th.resizing .ptn-col-grip::after,
+.part-partners .ptn-rec-salestable th[data-col]:hover .ptn-col-grip::after,
+.part-partners .ptn-rec-salestable th.resizing .ptn-col-grip::after { opacity: 1; background: var(--muted); }
+
+/* 업체 컨택 › ▶️ 유튜브 크리에이터 추천 */
+.part-partners .ptn-yt-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 0 16px 12px; }
+.part-partners .ptn-yt-kws { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.part-partners .ptn-yt-sub { align-items: center; gap: 12px; padding: 0 16px 12px; }
+.part-partners .ptn-yt-sort { width: auto; min-width: 180px; }
+.part-partners .ptn-yt-th, .part-partners .ptn-yt-sub2 { display: block; font-size: 10px; font-weight: 400; color: var(--faint); margin-top: 2px; }
+.part-partners .ptn-yt .note { margin: 0 16px 12px; }
+.part-partners .ptn-yt-av { width: 36px; height: 36px; flex: none; border-radius: 50%; object-fit: cover; background: var(--soft-2); }

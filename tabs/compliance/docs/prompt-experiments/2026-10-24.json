@@ -1,0 +1,134 @@
+{
+ "date": "2026-10-24",
+ "model": "claude-opus-5-5",
+ "rows": [
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Wake up without the headache.",
+   "expect": "BLOCK",
+   "rule": "PASS",
+   "ai": "BLOCK",
+   "summary": "애프터파티 제품 광고에서 'without the headache'는 술 마신 다음 날 두통, 즉 숙취 증상을 막는다는 뜻으로 읽힙니다. 일반식품이 증상 예방·완화를 주장하는 것은 FDA 기준상 의약품 클레임이므로 이 문구는 그대로 쓸 수 없습니다. 룰 엔진은 'hangover'라는 단어가 없어 PASS로 판정했지만, 암시적 숙취 클레임입니다."
+  },
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Helps your body process alcohol faster.",
+   "expect": "BLOCK",
+   "rule": "REVISE",
+   "ai": "BLOCK",
+   "summary": "'알코올을 더 빨리 처리하도록 돕는다'는 일반식품의 영양 기능에서 나오는 표현이 아닙니다. 알코올 대사를 빠르게 한다는 생리 작용을 주장하기 때문에, 미국 소비자는 취기나 숙취를 줄여 준다는 뜻으로 받아들입니다. 그러면 의약품 클레임으로 판단될 위험이 큽니다. 효과를 입증할 근거도 확인되지 않았습니다. '빨리 깬다'는 뉘앙스는 음주 후 운전 같은 안전 오해나 과음 조장으로 이어질 수 있습니다. 문구를 수정해도 핵심 주장이 남기 때문에 그대로는 쓸 수 없습니다."
+  },
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Party all night and feel fine tomorrow.",
+   "expect": "BLOCK",
+   "rule": "PASS",
+   "ai": "BLOCK",
+   "summary": "'hangover'라는 단어는 없지만, 밤새 파티해도 다음 날 괜찮다는 문장은 숙취 예방을 약속하는 것으로 읽힙니다. 일반식품에서는 이런 표현을 의약품 클레임으로 봅니다. 또 '밤새 파티'는 과음을 부추기는 표현이라 FTC 측면에서도 문제가 됩니다. 이대로는 사용할 수 없습니다. 룰 엔진은 PASS였지만, 금지 단어가 없어서 암시적 클레임을 잡지 못한 것으로 보입니다."
+  },
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Doctors recommend our jelly.",
+   "expect": "REVISE",
+   "rule": "PASS",
+   "ai": "BLOCK",
+   "summary": "'의사 추천'은 의학적 권위를 내세우는 표현입니다. 실제 의사 조사 같은 근거가 없으면 FTC 기준상 허위 전문가 추천이 됩니다. 애프터파티 제품이라 숙취에 효과가 있다는 의약품 같은 인상도 줍니다. 그대로는 사용할 수 없습니다. 규칙 엔진은 PASS였지만 해당 표현이 규칙 용어에 없어 놓친 것으로 보입니다."
+  },
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Absorbs alcohol so you stay sharp.",
+   "expect": "BLOCK",
+   "rule": "PASS",
+   "ai": "BLOCK",
+   "summary": "'알코올을 흡수한다'는 문구는 몸 안에서 알코올에 작용한다는 기전 주장입니다. 'stay sharp'와 합쳐지면 술에 덜 취한다는 뜻으로 읽힙니다. 일반식품에서는 의약품 클레임으로 보이고, 근거 없는 객관적 주장이며, 과음이나 음주 후 위험 행동을 부추길 수 있습니다. 룰 엔진은 PASS였지만 그대로 쓰면 안 됩니다."
+  },
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Try it risk-free with our 30-day money-back guarantee.",
+   "expect": "PASS",
+   "rule": "REVISE",
+   "ai": "COND",
+   "summary": "건강·숙취 표현은 없습니다. 다만 'risk-free'와 '30-day money-back guarantee'는 FTC가 실제 이행 여부를 보는 객관적 약속입니다. 환불 프로그램이 실제로 있고 조건을 광고 가까이에 분명히 밝힐 때만 사용할 수 있습니다."
+  },
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Tastes like lime and cherry.",
+   "expect": "PASS",
+   "rule": "PASS",
+   "ai": "COND",
+   "summary": "건강·숙취·음주 관련 표현이 없는 단순한 맛 설명이라 FDA 클레임 위험은 낮습니다. 다만 맛 라인업이 아직 확정되지 않았고 어떤 제품용인지 적혀 있지 않습니다. 또 한 제품에서 라임과 체리 맛이 함께 난다고 읽힐 수 있습니다. 실제로 판매하는 맛과 맞는지 확인한 뒤 사용하세요."
+  },
+  {
+   "version": "v2 (few-shot 없음)",
+   "text": "Made in Korea with Hovenia dulcis extract.",
+   "expect": "PASS",
+   "rule": "PASS",
+   "ai": "REVIEW",
+   "summary": "질병이나 숙취를 직접 말하지는 않습니다. 하지만 Hovenia dulcis(헛개나무)는 미국에서도 숙취 해소 성분으로 널리 알려져 있습니다. 애프터파티 브랜드 광고에서 이 성분을 앞세우면 숙취 효능을 암시하는 것으로 읽힐 수 있습니다(R13). 미국에서 일반식품 원료로 쓸 수 있는지도 확인이 필요합니다. 그래서 사람이 직접 판단해야 합니다. 룰엔진의 PASS 판정은 이 성분 연상을 잡지 못한 결과로 보입니다."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Wake up without the headache.",
+   "expect": "BLOCK",
+   "rule": "PASS",
+   "ai": "BLOCK",
+   "summary": "애프터파티 브랜드 광고에서 '두통 없이 일어나라'는 말은 음주 후 숙취 두통을 막아 준다는 뜻으로 읽힙니다. 일반식품에는 쓸 수 없는 질병·증상 예방 주장이므로 그대로 사용하면 안 됩니다. 룰 엔진은 PASS였지만 금지어 없이 숙취를 암시하는 경우라서 걸러지지 않은 것으로 보입니다."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Helps your body process alcohol faster.",
+   "expect": "BLOCK",
+   "rule": "REVISE",
+   "ai": "BLOCK",
+   "summary": "'알코올을 더 빨리 처리하게 돕는다'는 말은 알코올 대사 촉진 주장입니다. 미국 독자는 술이 빨리 깬다, 숙취·취기가 줄어든다고 받아들입니다. 일반식품에 쓸 수 없는 의약품성 주장이라 이 문장은 그대로 쓸 수 없습니다. 알코올 대사와 '더 빠르게'라는 효과 표현을 모두 빼야 합니다."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Party all night and feel fine tomorrow.",
+   "expect": "BLOCK",
+   "rule": "PASS",
+   "ai": "BLOCK",
+   "summary": "'hangover'라는 단어는 없지만, 밤새 놀아도 다음 날 멀쩡하다는 말은 숙취를 막아 준다는 뜻으로 읽힙니다. 일반식품에 쓸 수 없는 암시적 의약품 주장이라 그대로 쓰면 안 됩니다. 'Party all night'은 과음을 부추기는 표현이기도 합니다. 룰 엔진은 PASS였지만 문맥상 BLOCK입니다."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Doctors recommend our jelly.",
+   "expect": "REVISE",
+   "rule": "PASS",
+   "ai": "REVISE",
+   "summary": "'의사가 추천한다'는 표현은 의료 전문가의 권위를 빌려 일반식품을 의약품처럼 보이게 합니다. 애프터파티 브랜드 맥락에서는 숙취에 의학적 효과가 있다는 암시로 읽힐 수 있습니다. 실제 의사 추천을 입증할 근거도 확인되지 않아 문구를 바꿔야 합니다. 룰 엔진은 PASS였지만 이 표현을 잡지 못했습니다."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Absorbs alcohol so you stay sharp.",
+   "expect": "BLOCK",
+   "rule": "PASS",
+   "ai": "BLOCK",
+   "summary": "'알코올을 흡수한다'는 말은 몸속 알코올에 작용해 취기를 줄인다는 주장입니다. 일반식품에는 의약품 주장으로 읽힙니다. 'stay sharp'는 마셔도 정신이 맑다는 뜻이라 안전 보장과 음주 조장으로도 읽힙니다. 규칙 엔진은 PASS였지만 사용하면 안 됩니다."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Try it risk-free with our 30-day money-back guarantee.",
+   "expect": "PASS",
+   "rule": "REVISE",
+   "ai": "COND",
+   "summary": "건강·숙취·음주 관련 주장은 없습니다. 효능 보장이 아니라 환불 보장 문구라서 룰엔진의 R5(효과 보장)와는 맞지 않습니다. 다만 FTC 기준상 실제 환불 정책이 있어야 하고, 조건을 분명히 밝혀야 합니다. 아마존 상품 페이지에서는 환불 보장 문구가 금지될 수 있으니 채널을 나눠 써야 합니다."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Tastes like lime and cherry.",
+   "expect": "PASS",
+   "rule": "PASS",
+   "ai": "COND",
+   "summary": "건강·숙취·음주 관련 주장은 없습니다. 다만 맛은 아직 확정 전이고 대상 제품도 지정되지 않았습니다. 'lime and cherry'는 한 제품에 두 맛이 섞인 것처럼 읽힐 수 있습니다. 최종 맛 라인업이 확정되고, 문구가 실제 판매 제품과 맞을 때만 사용하세요."
+  },
+  {
+   "version": "v3 (few-shot 5개)",
+   "text": "Made in Korea with Hovenia dulcis extract.",
+   "expect": "PASS",
+   "rule": "PASS",
+   "ai": "REVIEW",
+   "summary": "문장 자체에는 건강이나 숙취 주장이 없습니다. 다만 헛개나무(Hovenia dulcis)는 미국에서도 숙취 보조 성분으로 널리 알려져 있습니다. 애프터파티 브랜드 광고에서 이 성분을 앞세우면 숙취 효과를 암시할 수 있어 사람이 판단해야 합니다. 어느 제품용 카피인지 지정되지 않았고, 성분이 실제로 들어 있는지도 확인이 필요합니다."
+  }
+ ]
+}

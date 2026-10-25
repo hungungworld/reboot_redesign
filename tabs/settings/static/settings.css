@@ -1,0 +1,100 @@
+/* 설정 및 브랜드 관리 (담당: 이현경) — .part-settings 안에서만, set- 접두사
+   base.css의 card · tabs · field-grid · data-table · switch · setting-row를 그대로 쓰고, 빈 곳만 채웁니다.
+   모달 본문도 .part-settings 로 감싸서 같은 규칙을 씁니다. 색은 base.css 변수만 (다크 모드 자동). */
+
+/* 입력 묶음 (라벨 + 입력) */
+.part-settings .set-fld { display: block; min-width: 0; }
+.part-settings .set-fld .hint { line-height: 1.6; }
+.part-settings .set-form > * + * { margin-top: 18px; }
+.part-settings .set-modal > .set-fld + .set-fld,
+.part-settings .set-modal > .field-grid + .set-fld,
+.part-settings .set-modal > .set-fld + .field-grid,
+.part-settings .set-modal > .field-grid + .field-grid { margin-top: 16px; }
+.part-settings .set-skel { height: 120px; }
+.part-settings .set-select { width: auto; min-width: 150px; padding: 8px 10px; }
+.part-settings .set-ml { margin-left: 18px; }
+.part-settings button.switch:disabled { opacity: .5; }
+.part-settings .set-invalid { outline: 2px solid var(--red) !important; outline-offset: 0; }
+
+/* 브랜드 컬러 견본 */
+.part-settings .set-swatches { display: flex; flex-wrap: wrap; gap: 14px 22px; }
+.part-settings .set-swatch { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.part-settings .set-swatch i { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--line-2); display: block; flex-shrink: 0; }
+.part-settings .set-swatch small { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+
+/* 제품 정보 시트 */
+.part-settings .set-product { align-items: flex-start; }
+.part-settings .set-pname { font-size: 13px; color: var(--ink); }
+.part-settings .set-pmeta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 8px; font-size: 11px; color: var(--text); align-items: center; }
+.part-settings .set-pmeta > span { display: inline-flex; align-items: center; gap: 5px; }
+.part-settings .set-row-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.part-settings .set-rules { margin: 0; padding-left: 18px; font-size: 12px; line-height: 1.75; color: var(--text); }
+.part-settings .set-rules li + li { margin-top: 8px; }
+.part-settings .set-rules b { color: var(--ink); }
+.part-settings .set-legend p { font-size: 11px; color: var(--muted); margin-top: 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* 출처 목록 (제품 상세 창) */
+.part-settings .set-sources { display: flex; flex-direction: column; gap: 8px; }
+.part-settings .set-src-row { display: grid; grid-template-columns: 130px minmax(0, 1.4fr) minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.part-settings .set-src-row .input { padding: 9px 10px; }
+
+/* 목록 편집 (검색어 · 키워드) */
+.part-settings .set-list { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--surface-2); }
+.part-settings .set-chiprow { display: flex; flex-wrap: wrap; gap: 7px; min-height: 26px; align-items: center; }
+.part-settings .set-chip { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; padding: 5px 5px 5px 10px; border-radius: 7px;
+  background: var(--surface); border: 1px solid var(--line-2); font-size: 12px; color: var(--ink-2); }
+.part-settings .set-chip > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.part-settings .set-chip.url > span { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; letter-spacing: 0; }
+.part-settings .set-chip button { width: 20px; height: 20px; border-radius: 5px; display: grid; place-items: center; color: var(--muted); flex-shrink: 0; }
+.part-settings .set-chip button:hover { background: var(--red-bg); color: var(--red); }
+.part-settings .set-chip button .icon { width: 12px; height: 12px; }
+.part-settings .set-addrow { display: flex; gap: 8px; margin-top: 10px; }
+.part-settings .set-addrow .input { padding: 8px 10px; }
+.part-settings .set-seg { display: flex; width: 100%; }
+.part-settings .set-seg button { flex: 1; font-size: 12px; padding: 9px 8px; }
+.part-settings .set-asins td { padding: 8px 10px; vertical-align: middle; }
+.part-settings .set-asins .input { padding: 8px 10px; min-width: 110px; }
+.part-settings .set-asin { text-transform: uppercase; }
+
+/* 표 안 보조 줄 · 연결 */
+.part-settings .set-sub { display: block; margin-top: 4px; font-size: 10px; color: var(--muted); font-weight: 400; line-height: 1.5; }
+.part-settings .set-conn td { vertical-align: middle; }
+.part-settings .set-conn th, .part-settings .set-conn td { padding-left: 11px; padding-right: 11px; }
+.part-settings .set-conn td:first-child { overflow-wrap: normal; word-break: keep-all; min-width: 140px; }
+.part-settings .set-conn td:first-child .set-sub { white-space: nowrap; }
+.part-settings .set-conn td.mono { white-space: normal; word-break: break-all; min-width: 90px; max-width: 160px; }
+.part-settings .set-conn .set-row-actions { flex-direction: column; align-items: stretch; flex-wrap: nowrap; }
+.part-settings .set-conn .set-row-actions .btn { justify-content: center; white-space: nowrap; }
+.part-settings .set-used { min-width: 160px; font-size: 11px; }
+.part-settings .set-value { word-break: break-all; }
+.part-settings .set-code { background: var(--soft); border-radius: 8px; padding: 12px; font-size: 11px; line-height: 1.7; overflow-x: auto;
+  white-space: pre; margin: 12px 0 0; color: var(--ink-2); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0; }
+.part-settings .set-copy { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.part-settings .set-copy code { flex: 1; min-width: 0; background: var(--soft-2); border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px;
+  font-size: 11px; word-break: break-all; letter-spacing: 0; }
+
+/* 작업 로그 */
+.part-settings .set-wl td { vertical-align: middle; }
+.part-settings .set-more { display: flex; justify-content: center; margin-top: 14px; }
+.part-settings .set-kv { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line-3); font-size: 12px; }
+.part-settings .set-kv > span { color: var(--muted); }
+.part-settings .set-h3 { font-size: 13px; margin: 18px 0 8px; }
+.part-settings .set-pre { margin: 0; background: var(--soft-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px; max-height: 300px; overflow: auto;
+  white-space: pre-wrap; word-break: break-word; font-size: 11px; line-height: 1.65; color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0; }
+
+/* 연결 탭: 표가 넓어서 오른쪽 안내 칸은 표 아래로 */
+@media (max-width: 1250px) {
+  .part-settings [data-panel="connections"] .workbench { grid-template-columns: minmax(0, 1fr); }
+}
+/* 한 칸이 될 때 내용 폭만큼 늘어나지 않게 (표는 카드 안에서만 가로 스크롤) */
+@media (max-width: 950px) {
+  .part-settings .workbench { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .part-settings .set-src-row { grid-template-columns: 1fr; }
+  .part-settings .set-row-actions { justify-content: flex-start; }
+  .part-settings .set-product { flex-direction: column; }
+  .part-settings .set-kv { grid-template-columns: 1fr; gap: 4px; }
+}

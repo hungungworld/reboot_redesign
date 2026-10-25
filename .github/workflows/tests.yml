@@ -1,0 +1,27 @@
+# PR마다 자동 확인: 서버 테스트(pytest) + 파트 JS 문법 (node --check)
+# 대시보드 코드는 저장소 맨 위에 있습니다.
+name: tests
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - name: 의존성 설치
+        run: pip install -r requirements-dev.txt
+      - name: 서버 테스트
+        run: python -m pytest
+      - name: JS 문법 확인
+        run: |
+          for f in core/core.js tabs/*/static/*.js; do node --check "$f" || exit 1; done
+      - name: JS 단위 확인 (tests/*.test.js · tabs/*/tests/*.test.js)
+        run: |
+          for f in tests/*.test.js tabs/*/tests/*.test.js; do [ -e "$f" ] || continue; node "$f" || exit 1; done

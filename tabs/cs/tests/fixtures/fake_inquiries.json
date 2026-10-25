@@ -1,0 +1,25 @@
+{
+  "_note": "Gmail 연동 시연용 가짜 문의 20건 (유형별 2건). 이름은 지어낸 이름이고 실제 고객 정보 없음. 받는 주소는 server/.env의 GMAIL_QUERY와 같은 +cs 별칭. expect는 parts/cs 분류 규칙 기준 정답.",
+  "inquiries": [
+    { "id": "CS-TEST-01", "expect": "C1", "name": "Emily Carter", "subject": "Swollen lips after eating", "body": "Hi, I ate one jelly stick this afternoon and about 30 minutes later my lips got swollen. I took an antihistamine and it's better now, but I'm worried.\n\nOrder: RB-2001\nEmily Carter" },
+    { "id": "CS-TEST-02", "expect": "C1", "name": "Jessica Nguyen", "subject": "My son broke out in hives", "body": "My 8-year-old had two sticks after school and broke out in hives on his neck an hour later. We called his doctor. The lot number on the box is L2406-02.\n\nOrder: RB-2002\nJessica Nguyen" },
+    { "id": "CS-TEST-03", "expect": "C2", "name": "Robert Hayes", "subject": "Taking blood pressure medication", "body": "I take medication for high blood pressure every morning. Is it safe to take your jelly sticks with it?\n\nThanks,\nRobert Hayes" },
+    { "id": "CS-TEST-04", "expect": "C2", "name": "Maria Gonzalez", "subject": "How many per day?", "body": "How many sticks can I have in a day? I'm also wondering if it's okay for kids under 10.\n\nMaria Gonzalez" },
+    { "id": "CS-TEST-05", "expect": "C3", "name": "Kevin Patel", "subject": "Please cancel my order", "body": "I placed an order an hour ago by mistake. Can you cancel it before it ships?\n\nOrder: RB-2005\nKevin Patel" },
+    { "id": "CS-TEST-06", "expect": "C3", "name": "Ashley Brooks", "subject": "Exchange for a different flavor", "body": "I got my box today but I'd like to exchange it for a different flavor. Is that possible?\n\nOrder: RB-2006\nAshley Brooks" },
+    { "id": "CS-TEST-07", "expect": "C4", "name": "Daniel Kim", "subject": "Expired product", "body": "The box I got today says the best-by date was last month. Did I get old stock?\n\nOrder: RB-2007\nDaniel Kim" },
+    { "id": "CS-TEST-08", "expect": "C4", "name": "Sarah Mitchell", "subject": "Missing item in my order", "body": "I ordered 3 boxes but only 2 were in the package.\n\nOrder: RB-2008\nSarah Mitchell" },
+    { "id": "CS-TEST-09", "expect": "C5", "name": "Tyler Johnson", "subject": "Tracking not updating", "body": "My tracking page hasn't changed in 5 days. Can you check with the carrier?\n\nOrder: RB-2009\nTyler Johnson" },
+    { "id": "CS-TEST-10", "expect": "C5", "name": "Megan Rivera", "subject": "Package says delivered but it's not here", "body": "It says my package was delivered yesterday, but it's not at my door.\n\nOrder: RB-2010\nMegan Rivera" },
+    { "id": "CS-TEST-11", "expect": "C6", "name": "Olivia Chen", "subject": "Is it vegan?", "body": "Does the jelly contain gelatin? I'm vegan and want to check before ordering.\n\nOlivia Chen" },
+    { "id": "CS-TEST-12", "expect": "C6", "name": "Brian Walsh", "subject": "Sugar per stick", "body": "What is the sugar content of one stick? I'm keeping an eye on my diet.\n\nBrian Walsh" },
+    { "id": "CS-TEST-13", "expect": "C7", "name": "Hannah Lee", "subject": "Bundle price", "body": "Do you offer a better price if I buy the 3-box bundle?\n\nHannah Lee" },
+    { "id": "CS-TEST-14", "expect": "C7", "name": "Jasmine Thompson", "subject": "Black Friday sale?", "body": "Will you have a Black Friday sale this year? I want to stock up for gifts.\n\nJasmine Thompson" },
+    { "id": "CS-TEST-15", "expect": "C8", "name": "Chris Morgan", "subject": "Very disappointed", "body": "I was excited to try these, but honestly I'm disappointed. The texture is way too hard.\n\nOrder: RB-2015\nChris Morgan" },
+    { "id": "CS-TEST-16", "expect": "C8", "name": "Nicole Foster", "subject": "Leaving a 1-star review", "body": "This was a waste of money. I'm planning to leave a 1-star review unless someone gets back to me.\n\nOrder: RB-2016\nNicole Foster" },
+    { "id": "CS-TEST-17", "expect": "C9", "name": "Mark Dubois", "subject": "Distributor in Canada", "body": "We are a food distributor based in Toronto. Could you share your wholesale price list and MOQ?\n\nMark Dubois\nPurchasing Manager" },
+    { "id": "CS-TEST-18", "expect": "C9", "name": "Grace Park", "subject": "Carrying your product in our store", "body": "I own a small Asian grocery in Seattle and we'd love to carry your jelly sticks. Who handles retail partner inquiries?\n\nGrace Park" },
+    { "id": "CS-TEST-19", "expect": "C10", "name": "Jordan Reyes", "subject": "Partnership proposal", "body": "I run a fitness YouTube channel and would like to discuss a sponsorship or affiliate partnership.\n\nJordan Reyes" },
+    { "id": "CS-TEST-20", "expect": "C10", "name": "Lauren Hughes", "subject": "Interview request", "body": "I write for a food blog and would like to interview your founder about Korean snacks.\n\nLauren Hughes" }
+  ]
+}

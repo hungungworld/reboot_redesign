@@ -1,0 +1,24 @@
+# 하루 1회 작업 (홈 뉴스 수집 · 규제 모니터링 등) — 매일 08:00 (KST)
+# 저장소 Settings → Secrets and variables → Actions 에 두 값을 넣으면 동작합니다 (없으면 건너뜀)
+#   REBOOT_URL  배포 주소 (예: https://reboot-dashboard.onrender.com)
+#   CRON_TOKEN  Render Environment의 CRON_TOKEN 값과 같게
+name: daily-jobs
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch: {}
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 하루 1회 작업 호출
+        env:
+          REBOOT_URL: ${{ secrets.REBOOT_URL }}
+          CRON_TOKEN: ${{ secrets.CRON_TOKEN }}
+        run: |
+          if [ -z "$REBOOT_URL" ] || [ -z "$CRON_TOKEN" ]; then
+            echo "REBOOT_URL 또는 CRON_TOKEN이 없어 건너뜁니다."; exit 0
+          fi
+          # 무료 플랜이면 잠든 서버를 깨우는 데 1분 정도 걸릴 수 있음
+          curl -fsS --retry 3 --retry-delay 20 --max-time 120 \
+            -X POST -H "X-Cron-Token: $CRON_TOKEN" "$REBOOT_URL/api/jobs/daily"

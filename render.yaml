@@ -1,0 +1,60 @@
+# Render Blueprint — Render 대시보드 → New → Blueprint → 이 저장소를 고르면 아래대로 만들어집니다.
+#
+# 저장소 구조: 대시보드 코드가 저장소 맨 위에 있어 설치·실행 명령을 맨 위에서 실행합니다.
+# 배포 브랜치는 main입니다 (Blueprint를 만들 때 Branch를 main으로 고름 · RULE.md §11).
+#
+# 비용 주의
+#   plan 0.5c-512mb(유료) + 영구 디스크 1GB 기준입니다. 로그인 계정·이력·업로드가 재배포 후에도 남습니다.
+#   free 플랜은 ① 영구 디스크를 붙일 수 없어 재시작·재배포 때 DB가 지워지고 ② Gmail SMTP(465/587)가 막혀
+#   협업 메일 발송이 안 되며 ③ 15분 동안 접속이 없으면 잠듭니다. 시험용으로만 쓰세요 (README 「배포」 참고).
+#
+# sync: false 항목은 Blueprint를 처음 만들 때 Render 화면에서 값을 묻습니다 (저장소에는 남지 않음).
+# API 키는 배포 후 대시보드의 설정 › 연결 화면에서 넣어도 됩니다 (화면 입력이 우선).
+services:
+  - type: web
+    name: reboot-dashboard
+    runtime: python
+    plan: 0.5c-512mb
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -c gunicorn.conf.py wsgi:app
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    disk:
+      name: reboot-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      # .python-version은 저장소 맨 위에서만 읽으므로 버전을 여기서 고정 (로컬 확인 3.14.7 · Render 기본 3.14.8)
+      - key: PYTHON_VERSION
+        value: "3.14.8"
+      - key: DATA_DIR
+        value: /var/data
+      - key: APP_ENV
+        value: production
+      - key: TIMEZONE
+        value: Asia/Seoul
+      - key: SECRET_KEY
+        generateValue: true
+      - key: APP_SECRET_KEY
+        generateValue: true
+      - key: CRON_TOKEN
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_NAME
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GMAIL_ADDRESS
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false

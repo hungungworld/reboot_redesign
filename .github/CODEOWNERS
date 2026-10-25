@@ -1,0 +1,14 @@
+# 파일을 고치면 아래 사람에게 GitHub이 자동으로 검토를 요청합니다. (RULE.md §5)
+# main으로 가는 PR은 이 목록의 PM(HK hungungworld, KHS hyxxns0131) 중 1명 승인이 필요합니다.
+# PM을 모든 줄에 함께 적어 두어, 여러 탭이 섞인 PR도 PM 1명 승인으로 충분합니다.
+
+*                     @hungungworld @hyxxns0131
+
+/tabs/home/           @hungungworld @hyxxns0131
+/tabs/insights/       @hungungworld @hyxxns0131
+/tabs/settings/       @hungungworld @hyxxns0131
+/tabs/content/        @npawon931-star @hungungworld @hyxxns0131
+/tabs/compliance/     @SOJUNHEE @hungungworld @hyxxns0131
+/tabs/cs/             @SOJUNHEE @hungungworld @hyxxns0131
+/tabs/partners/       @rnjagurwn5-max @hungungworld @hyxxns0131
+/tabs/performance/    @rnjagurwn5-max @hungungworld @hyxxns0131

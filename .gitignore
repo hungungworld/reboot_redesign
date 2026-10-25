@@ -1,0 +1,40 @@
+# GitHub에 올리지 않는 것 (저장소 전체에 하나만 둠 · RULE.md §9)
+
+# 비밀 정보 — 어느 폴더에 있어도 올리지 않음
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+client_secret*.json
+
+# 실행 데이터 (DB · 업로드 · 캐시) — 로컬은 instance/, Render는 /var/data
+instance/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite3
+uploads/
+
+# 파이썬 · 도구 · 캐시
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
+.playwright-mcp/
+
+# 개인 작업 폴더
+dev/
+_incoming/
+
+# 편집기 · AI 개인 설정
+.vscode/*
+!.vscode/settings.json
+.idea/
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,223 @@
+/* 홈 · 데일리 브리핑 스타일 (담당: 강현서) — .part-home 안에서만, home- 접두사.
+   kpis · home-layout · brief-hero · season-card · calendar-large · intro-* · launch-* · task · market-item · activity는 base.css 그대로 씁니다.
+   차트 색: 매출(라임 실선) · 광고비(어두운 올리브 점선) — 다크 모드는 따로 */
+/* 줄바꿈: 어절 단위(base.css keep-all) + 마지막 줄에 한두 단어만 남지 않게(pretty) · 제목 · 짧은 글은 줄 길이를 고르게(balance)
+   text-wrap-style만 바꿔서 nowrap 칸(배지 · 표 · 알약)은 그대로 한 줄 */
+.part-home { text-wrap-style: pretty; }
+.part-home :is(h1, h2, h3, h4, summary, th, label, .badge, .kpi-label, .panel-note) { text-wrap-style: balance; }
+/* 문장 · 반점 한 조각(home.js phrase) — 한 줄에 들어가면 통째로 다음 줄로, 길면 조각 안에서 줄 길이를 고르게 */
+.part-home .home-ph { display: inline-block; max-width: 100%; text-wrap-style: balance; }
+.part-home { --home-rev: #a3bb12; --home-rev-fill: rgba(228, 250, 24, .28); --home-spend: #6d6e78; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .part-home { --home-rev: #d4ea2a; --home-rev-fill: rgba(228, 250, 24, .14); --home-spend: #a0a1ab; }
+}
+:root[data-theme="dark"] .part-home { --home-rev: #d4ea2a; --home-rev-fill: rgba(228, 250, 24, .14); --home-spend: #a0a1ab; }
+
+/* 다가오는 미국 시즌 — base.css 카드를 홈에서만 작게 */
+.part-home .season-card { padding: 10px 13px; }
+.part-home .season-card h3 { font-size: 14px; margin: 6px 0 2px; }
+.part-home .season-card p { font-size: 10.5px; }
+.part-home .season-card .rule { margin: 7px 0 5px; }
+.part-home .season-card .link { margin-top: 6px; }
+.part-home .season-card .days-left { font-size: 18px; }
+
+/* 히어로 카드 — 누르면 콘텐츠 캘린더로 (안의 버튼은 원래 링크) */
+.part-home .brief-hero[data-go-view] { cursor: pointer; }
+
+/* KPI 카드 — 누르면 해당 파트로 */
+.part-home .home-kpi-link { display: block; color: inherit; text-decoration: none; border-radius: 14px; min-width: 0; }
+.part-home .home-kpi-link .kpi { height: 100%; transition: border-color .15s; }
+.part-home .home-kpi-link:hover .kpi:not(.featured) { border-color: var(--line-2); }
+.part-home .home-kpi-link:hover .kpi.featured { filter: brightness(.97); }
+.part-home .home-kpi-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* 이번 주 성과 */
+.part-home .home-chart-top { margin-bottom: 10px; align-items: flex-end; flex-wrap: wrap; }
+.part-home .home-chart-summary { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; min-width: 0; }
+.part-home .home-chart-summary strong { font-size: 21px; letter-spacing: -.8px; font-weight: 720; }
+.part-home .home-chart-summary small { font-size: 10px; color: var(--muted-2); flex-basis: 100%; }
+.part-home .home-legend { display: flex; gap: 14px; font-size: 10px; color: var(--muted); }
+.part-home .home-legend span::before { content: ""; display: inline-block; width: 16px; height: 0; border-top: 2px solid var(--home-rev); vertical-align: middle; margin-right: 6px; }
+.part-home .home-legend .spend::before { border-top: 2px dashed var(--home-spend); }
+.part-home .home-chart { position: relative; height: 150px; }
+.part-home .home-chart canvas { display: block; }
+.part-home [data-range]:disabled { opacity: .45; cursor: not-allowed; }
+
+/* To-Do */
+.part-home .home-todo-meta { margin: -8px 0 4px; }
+.part-home .home-task-main { display: flex; gap: 10px; align-items: flex-start; flex: 1; min-width: 0; cursor: pointer; }
+.part-home .home-task-main .task-title, .part-home .home-task-main .meta { display: block; }
+.part-home .home-task-main .meta .link { font-size: 10px; display: inline; }
+/* To-Do 제목이 한 줄에 들어가도록: 출처 배지(AI · 규칙 · 직접)는 근거 줄 맨 앞으로 */
+.part-home .home-task-main .meta .badge { margin-right: 5px; padding: 1px 5px; vertical-align: 1px; }
+/* 오른쪽 칸(To-Do · 활동)을 1201~1599px에서도 330px로 (base.css는 1600px 이상만 330px) */
+@media (min-width: 1201px) { .part-home .home-layout { grid-template-columns: minmax(0, 1fr) 330px; } }
+.part-home .home-todo-del { flex-shrink: 0; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 6px; color: var(--faint); opacity: .6; }
+.part-home .home-todo-del:hover, .part-home .home-todo-del:focus-visible { opacity: 1; background: var(--soft); color: var(--red); }
+.part-home .home-todo-del .icon { width: 14px; height: 14px; }
+.part-home .home-todo-form { display: grid; gap: 8px; margin: 10px 0 6px; padding: 12px; border-radius: 10px; background: var(--soft-2); border: 1px solid var(--line); }
+
+/* 뉴스 */
+.part-home .home-news-badges { gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+.part-home .market-item p a { color: inherit; text-decoration: none; }
+.part-home .market-item p a:hover { text-decoration: underline; }
+.part-home .home-links a { color: var(--muted-2); text-decoration: underline; text-underline-offset: 2px; }
+.part-home .home-links a:hover { color: var(--ink); }
+.part-home .home-errors { margin-top: 10px; font-size: 11px; color: var(--red); }
+.part-home .home-errors summary { cursor: pointer; }
+.part-home .home-errors ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); }
+
+/* 콘텐츠 캘린더 (큰 달력 · base.css .calendar-large) */
+.part-home .home-cal-head { flex-wrap: wrap; }
+.part-home .home-cal-title { font-size: 20px; margin-right: 4px; }
+.part-home .home-cal-weekdays { font-size: 11px; margin: 0 0 8px; }
+.part-home .calendar-large .day { min-height: 72px; padding: 5px 7px; }
+.part-home .calendar-large .event-pill { margin-top: 3px; padding: 3px 5px; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.part-home .home-sched-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 22px; }
+.part-home .home-sched-grid .schedule-item { margin: 0; padding: 12px 0; border-bottom: 1px solid var(--line-3); }
+.part-home .home-sched.is-lead .date-box { background: var(--lime); color: var(--lime-ink); }
+.part-home .home-sched p { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.part-home .home-sched .date-box small { font-size: 7.5px; white-space: nowrap; }
+.part-home .home-surge > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.part-home .home-surge > summary::-webkit-details-marker { display: none; }
+.part-home .home-surge > summary::before { content: "▸"; color: var(--muted); transition: transform .15s; }
+.part-home .home-surge[open] > summary::before { transform: rotate(90deg); }
+.part-home .home-surge > summary h2 { margin: 0; font-size: 15px; }
+.part-home .home-surge-body { margin-top: 14px; }
+.part-home .home-surge-list { list-style: none; margin: 0 0 12px; padding: 0; }
+.part-home .home-surge-list li { padding: 10px 0; border-bottom: 1px solid var(--line-3); }
+.part-home .home-surge-list small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+/* 데일리 브리핑 오른쪽 */
+.part-home .home-todo-head { flex-wrap: wrap; }
+.part-home .home-side-title { font-size: 13px; }
+@media (max-width: 950px) { .part-home .home-sched-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .part-home .home-cal-weekdays { min-width: 650px; } }
+@media (max-width: 600px) { .part-home .home-sched-grid { grid-template-columns: 1fr; } }
+
+/* 뉴스 카드: 카드 어디를 눌러도 기사 새 탭 */
+.part-home .home-news-card { cursor: pointer; border-radius: 9px; transition: background .15s; }
+.part-home .home-news-card:hover { background: var(--soft-2); }
+
+/* 이번 주 To-Do 버튼 · 사이드 패널 (모든 화면 · part-home 밖이라 home-dock 접두사) */
+.home-fab { position: fixed; right: 24px; bottom: 24px; z-index: 45; width: 52px; height: 52px; border-radius: 50%; border: 0;
+  background: var(--lime); color: var(--lime-ink); box-shadow: var(--shadow); display: grid; place-items: center; cursor: pointer; }
+.home-fab:hover { background: var(--lime-line); }
+.home-fab .icon { width: 22px; height: 22px; }
+.home-fab-count { position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px;
+  background: var(--dark); color: var(--dark-ink); font-size: 10.5px; font-weight: 650; display: grid; place-items: center; }
+.home-fab-count[hidden] { display: none; }
+.home-dock-scrim { position: fixed; inset: 0; z-index: 54; background: rgba(23, 23, 32, .25); }
+.home-dock-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 55; width: min(380px, 100vw); background: var(--surface);
+  border-left: 1px solid var(--line); box-shadow: var(--shadow); padding: 22px 20px; display: flex; flex-direction: column; gap: 10px; }
+.home-dock-panel[hidden], .home-dock-scrim[hidden] { display: none; }
+.home-dock-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.home-dock-head h2 { font-size: 15px; }
+.home-dock-close { border: 0; background: none; color: var(--muted); cursor: pointer; padding: 6px; border-radius: 7px; }
+.home-dock-close:hover { background: var(--soft); }
+.home-dock-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; }
+.home-dock-item { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border-radius: 9px; cursor: pointer; }
+.home-dock-item:hover { background: var(--soft-2); }
+.home-dock-item input { margin-top: 3px; }
+.home-dock-title { display: block; font-size: 12.5px; color: var(--ink); }
+.home-dock-reason { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+.home-dock-item.done .home-dock-title { text-decoration: line-through; color: var(--faint); }
+.home-dock-go { align-self: flex-start; }
+@media (max-width: 640px) { .home-fab { right: 16px; bottom: 16px; } }
+
+.part-home .market-item > div:nth-child(2) { flex: 1; min-width: 0; }
+
+/* 검색어 점검 */
+.part-home .home-qstats { margin-top: 10px; font-size: 11.5px; }
+.part-home .home-qstats summary { cursor: pointer; color: var(--muted); }
+.part-home .home-qstats code { font-size: 10.5px; white-space: normal; }
+
+
+/* 미국 시장 브리핑 — 헤더 한 줄 · 오늘의 핵심 1개 · 짧은 목록 · 하단 한 줄. 글자 16/14/12/11px, 색은 잉크 · 회색 · 라임만 */
+/* 헤더: 왼쪽 제목 · 배송 정보, 오른쪽 새로고침은 항상 같은 줄. 업계/트렌드 버튼은 그 아래 줄 */
+.part-home .home-brief-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.part-home .home-brief-title { display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; min-width: 0; }
+.part-home .home-brief-title h2 { white-space: nowrap; }
+.part-home .home-brief-refresh { flex-shrink: 0; width: 30px; height: 30px; }
+.part-home .home-brief-refresh .icon { width: 15px; height: 15px; }
+.part-home .home-brief-sub { font-size: 11px; color: var(--muted); }
+.part-home .home-brief-tabs:empty { display: none; }
+.part-home .home-brief-tabs { margin-top: 10px; }
+.part-home .home-news-more { display: flex; align-items: center; justify-content: center; gap: 4px; width: 100%; height: 26px; margin-top: 2px;
+  border-top: 1px solid var(--line-3); font-size: 11px; color: var(--muted); }
+.part-home .home-news-more:hover { color: var(--ink); background: var(--soft-2); }
+.part-home .home-news-more-ic { font-size: 10px; line-height: 1; }
+.part-home .home-kind .chip { padding: 6px 11px; }
+.part-home .home-kind .chip:disabled { opacity: .45; cursor: default; }
+.part-home .home-lead { margin-top: 14px; padding: 15px 16px; border-radius: 10px; background: var(--soft-2); }
+.part-home .home-lead-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.part-home .home-lead-meta { font-size: 11px; color: var(--muted); }
+.part-home .home-lead-meta b, .part-home .home-row-side b { font-weight: 650; color: var(--lime-deep); }
+.part-home .home-lead-title { margin-top: 4px; font-size: 16px; font-weight: 650; line-height: 1.45; color: var(--ink); }
+.part-home .home-lead-sum { margin-top: 4px; font-size: 12px; line-height: 1.6; color: var(--text); }
+.part-home .home-lead-view { margin-top: 10px; padding-left: 10px; border-left: 3px solid var(--lime-deep); font-size: 12px; line-height: 1.6; color: var(--ink-2); }
+.part-home .home-rows { margin-top: 4px; }
+.part-home .home-row { display: flex; align-items: flex-start; gap: 12px; padding: 11px 4px; border-bottom: 1px solid var(--line-3); }
+.part-home .home-rows > .home-row:last-of-type, .part-home .home-rows > div > .home-row:last-child { border-bottom: 0; }
+.part-home .home-row-no { width: 14px; flex-shrink: 0; padding-top: 2px; font-size: 11px; color: var(--muted-2); font-variant-numeric: tabular-nums; }
+.part-home .home-row-main { flex: 1; min-width: 0; }
+.part-home .home-row-title { font-size: 14px; font-weight: 650; line-height: 1.45; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.part-home .home-row-view { margin-top: 2px; font-size: 12px; line-height: 1.55; color: var(--text); }
+.part-home .home-row-side { flex-shrink: 0; padding-top: 3px; font-size: 11px; color: var(--muted); white-space: nowrap; }
+.part-home .home-lead-title a, .part-home .home-row-title a { color: inherit; text-decoration: none; }
+.part-home .home-lead-title a:hover, .part-home .home-row-title a:hover { text-decoration: underline; }
+.part-home .home-news-card { cursor: pointer; }
+.part-home .home-row.home-news-card:hover { background: var(--soft-2); border-radius: 8px; }
+.part-home .read .home-lead-title, .part-home .read .home-row-title { color: var(--muted); }
+.part-home .read .home-row-view, .part-home .read .home-lead-sum { color: var(--muted-2); }
+.part-home .home-save { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; color: var(--muted-2); }
+.part-home .home-save:hover { background: var(--surface); color: var(--ink); }
+.part-home .home-save .icon { width: 15px; height: 15px; }
+.part-home .home-save.on { color: var(--lime-deep); }
+.part-home .home-save.on .icon { fill: currentColor; }
+.part-home .home-brief-empty { margin-top: 14px; }
+.part-home .home-brief-foot { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--line-3); font-size: 11px; }
+.part-home .home-brief-saved a { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-2); font-weight: 600; text-decoration: none; }
+.part-home .home-brief-saved a:hover { color: var(--lime-deep); }
+.part-home .home-brief-saved .icon { width: 13px; height: 13px; }
+.part-home .home-brief-info { margin-left: auto; color: var(--muted); }
+.part-home .home-brief-info summary { cursor: pointer; text-align: right; }
+.part-home .home-brief-info[open] { flex-basis: 100%; margin-left: 0; }
+.part-home .home-brief-info[open] summary { text-align: left; }
+.part-home .home-brief-info .panel-note { margin-top: 6px; }
+@media (max-width: 640px) { .part-home .home-row-side { display: none; } .part-home .home-row-title { white-space: normal; } }
+
+/* 오늘 할 일 — 왼쪽 시간대별 목록 · 오른쪽 처리 패널 (워크플로 개편안 v2 화면 ①) */
+.part-home .home-today { display: grid; grid-template-columns: minmax(0, 1fr) 430px; gap: 0; align-items: start;
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--canvas); overflow: hidden; }
+.part-home .home-today-list { padding: 18px 20px 22px; min-width: 0; }
+.part-home .home-today-progress { height: 6px; background: var(--line); border-radius: 4px; overflow: hidden; margin-bottom: 4px; }
+.part-home .home-today-progress i { display: block; height: 100%; background: var(--lime-dot); border-radius: 4px; transition: width .2s; }
+.part-home .home-today-slot h3 { font-size: 11px; font-weight: 650; letter-spacing: 1px; color: var(--muted-2); margin: 18px 0 8px; }
+.part-home .home-today-row { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto auto; align-items: center; gap: 10px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; }
+.part-home .home-today-row.is-sel { border: 2px solid var(--lime-line); padding: 11px 15px; }
+.part-home .home-today-row.is-done { opacity: .55; }
+.part-home .home-today-row.is-done .home-today-pick { text-decoration: line-through; }
+.part-home .home-today-row input { width: 16px; height: 16px; margin: 0; accent-color: var(--lime-deep); }
+.part-home .home-today-pick { min-width: 0; text-align: left; font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.45; padding: 0; background: none; border: 0; cursor: pointer; }
+.part-home .home-today-pick:hover { text-decoration: underline; }
+.part-home .home-today-min { font-size: 11px; color: var(--muted); white-space: nowrap; min-width: 34px; text-align: right; }
+.part-home .home-today-panel { background: var(--surface); border-left: 1px solid var(--line); padding: 22px 24px; align-self: stretch; min-height: 320px; }
+.part-home .home-today-kicker { font-size: 11px; font-weight: 650; letter-spacing: .5px; color: var(--muted-2); margin: 0 0 8px; }
+.part-home .home-today-panel h2 { font-size: 17px; line-height: 1.45; margin: 0 0 4px; }
+.part-home .home-today-detail { font-size: 13px; color: var(--text); line-height: 1.6; background: var(--lime-wash); border-radius: 10px; padding: 12px 14px; margin: 14px 0 0; }
+.part-home .home-today-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.part-home .home-today-hint { margin-top: 18px; color: var(--faint); }
+/* 제목 오른쪽 시즌 알약 (page-actions — .part-home 밖) */
+.home-today-season { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 25px; background: var(--night); color: var(--night-text); font-size: 12px; white-space: nowrap; }
+.home-today-season b { color: var(--lime); font-weight: 700; }
+@media (max-width: 1100px) {
+  .part-home .home-today { grid-template-columns: 1fr; }
+  .part-home .home-today-panel { border-left: 0; border-top: 1px solid var(--line); min-height: 0; }
+}
+@media (max-width: 640px) {
+  .part-home .home-today-list { padding: 14px 12px 16px; }
+  .part-home .home-today-row { grid-template-columns: 22px minmax(0, 1fr) auto; }
+  .part-home .home-today-min { display: none; }
+}

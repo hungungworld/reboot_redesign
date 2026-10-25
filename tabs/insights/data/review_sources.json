@@ -1,0 +1,13 @@
+{
+  "_설명": "채널 리뷰 수집 대상 (알디콤 상품 페이지). 포장 · 개수가 달라도 화면에서는 제품 라인(알디콤 A · V · Plus · 부스트)으로 묶어 봐요. 2026-10-24 확인.",
+  "products": [
+    {"channel": "oliveyoung", "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA240222422"},
+    {"channel": "oliveyoung", "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA251034511"},
+    {"channel": "oliveyoung", "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA241026379"},
+    {"channel": "oliveyoung", "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA250731915"},
+    {"channel": "oliveyoung", "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260843103"},
+    {"channel": "oliveyoung", "url": "https://global.oliveyoung.com/product/detail?prdtNo=GA260843104"},
+    {"channel": "amazon", "asin": "B0DTYS4BP4"},
+    {"channel": "yami", "url": "https://www.yami.com/us/en/p/aldicom-a-before-drinking-party-favors-after-drinking-supplement-travel-size-liquid-5-pack-0-6-oz/1174080301"}
+  ]
+}

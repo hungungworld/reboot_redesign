@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}{{ part.label }} · REBOOT Marketing Workspace{% endblock %}
+{% block head %}
+{% for f in css %}<link rel="stylesheet" href="{{ asset('parts', f) }}">
+{% endfor %}
+{% endblock %}
+{% block body %}
+{# 시안 v3 (Monochrome workspace · two-level navigation)
+   상단 = 업무 영역 (알약 메뉴) · 왼쪽 = 고른 영역의 하위 메뉴 (core.js가 파트의 탭을 옮겨 채움) #}
+{% set env_text = boot.env.label ~ ' · 팀 공용 데이터' %}
+{% set cur_group = group_of(part.id) %}
+<header class="topbar">
+  <div class="workspace-label">
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="하위 메뉴 열기" aria-controls="sidebar" aria-expanded="false">{{ icon('grid') }}</button>
+    <a href="{{ url_for('core.dashboard') }}" class="ws-home" aria-label="REBOOT 워크스페이스 홈">WORKSPACE</a>
+    <small>US / GLOBAL</small>
+  </div>
+  <nav class="top-nav" id="top-nav" aria-label="주요 업무 영역">
+    {# 알약 = 업무 영역 (registry.GROUPS). 같은 영역의 파트 화면이면 active · 숫자는 대표 파트의 summary() #}
+    {% for g in nav_groups() %}{% set on = cur_group and g.id == cur_group.id %}
+    <a href="{{ url_for('core.dashboard') if g.lead == 'home' else url_for('core.part_page', part_id=g.lead) }}" class="{% if on %}active{% endif %}"{% if on %} aria-current="page"{% endif %} title="{{ g.parts | map(attribute='label') | join(' · ') }}">
+      <span>{{ g.label }}</span><span class="count" data-count="{{ g.lead }}" hidden></span>
+    </a>
+    {% endfor %}
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="icon-btn" id="bell-btn" aria-label="오늘 확인할 일">{{ icon('bell') }}<i class="dot" data-bell-dot hidden></i></button>
+    <a class="icon-btn{% if part.id == 'settings' %} is-on{% endif %}" href="{{ url_for('core.part_page', part_id='settings') }}" aria-label="설정 및 브랜드 관리" title="설정 및 브랜드 관리">{{ icon('settings') }}</a>
+    <div class="profile-wrap">
+      <button type="button" class="profile" id="profile-btn" aria-haspopup="true" aria-expanded="false" aria-label="{{ current_user.name or current_user.email }} 프로필 메뉴">
+        <span class="avatar" aria-hidden="true">{{ current_user.initials }}</span>
+      </button>
+      <div class="menu" id="profile-menu" hidden>
+        <div class="menu-head"><strong>{{ current_user.name or current_user.email }}</strong><small>{{ current_user.title or ('관리자' if current_user.is_admin else '팀원') }} · {{ current_user.email }}</small></div>
+        <a href="{{ url_for('core.part_page', part_id='settings') }}#account">{{ icon('user') }}내 계정 · 설정</a>
+        <button type="button" id="theme-btn">{{ icon('moon') }}테마: <span data-theme-label>밝게</span></button>
+        <hr>
+        <form method="post" action="{{ url_for('auth.logout') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button type="submit">{{ icon('logout') }}로그아웃</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+<aside class="sidebar" id="sidebar" aria-label="{{ part.short or part.label }} 하위 메뉴">
+  <div class="sidebar-head">
+    <button type="button" class="side-close" data-close-sidebar aria-label="메뉴 닫기">×</button>
+    <p class="side-kicker">{{ cur_group.kicker if cur_group else part.kicker }}</p>
+    <h2 class="side-title">{{ cur_group.title if cur_group else (part.short or part.label) }}</h2>
+  </div>
+  {% set base_url = url_for('core.dashboard') if part.id == 'home' else url_for('core.part_page', part_id=part.id) %}
+  {% set ns = namespace(crumb=part.label) %}
+  <nav class="subnav" id="subnav" aria-label="{{ part.short or part.label }} 하위 메뉴">
+    {% if part.links %}
+    {% for label, ic, view in part.links %}{% set on = request.args.get('view', '') == view %}{% if on %}{% set ns.crumb = label %}{% endif %}
+    <a class="{{ 'active' if on }}"{% if on %} aria-current="page"{% endif %} href="{{ base_url }}{{ '?view=' ~ view if view }}">{{ icon(ic) }}<span class="label">{{ label }}</span></a>
+    {% endfor %}
+    {% else %}
+    <a class="active" aria-current="page" href="{{ base_url }}">{{ icon(part.icon) }}<span class="label">{{ part.label }}</span></a>
+    {% endif %}
+  </nav>
+  {# 같은 영역의 다른 파트 링크. core.js renderNav()가 #subnav 안을 덮어쓰므로 반드시 바깥에 둠 #}
+  {% if cur_group and cur_group.parts | length > 1 %}
+  <nav class="subnav subnav-group" aria-label="같은 영역의 다른 화면">
+    <p class="subnav-group-title">{{ '근거 자료' if cur_group.id == 'studio' else '같은 영역' }}</p>
+    {% for p in cur_group.parts if p.id != part.id %}
+    <a href="{{ url_for('core.dashboard') if p.id == 'home' else url_for('core.part_page', part_id=p.id) }}">{{ icon(p.icon) }}<span class="label">{{ p.short or p.label }}</span></a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+  <div class="sidebar-bottom">
+    <div class="sidebar-hint">
+      <div class="status-line"><i></i> {{ env_text }}</div>
+      <p>판정·초안·AI 결과는 1차 참고용입니다.<br>최종 판단과 발송은 담당자가 합니다.</p>
+    </div>
+    {% for p in all_parts if not p.nav %}
+    <a class="utility-link{% if p.id == part.id %} active{% endif %}" href="{{ url_for('core.part_page', part_id=p.id) }}"{% if p.id == part.id %} aria-current="page"{% endif %}>{{ icon(p.icon) }}<span>{{ p.label }}</span><span class="count" data-count="{{ p.id }}" hidden></span></a>
+    {% endfor %}
+    <form method="post" action="{{ url_for('auth.logout') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button type="submit" class="utility-link">{{ icon('logout') }}<span>로그아웃</span></button>
+    </form>
+    <div class="side-footer">MARKETING WORKSPACE <span>{{ boot.env.label }}</span></div>
+  </div>
+</aside>
+<button type="button" class="sidebar-scrim" data-close-sidebar aria-label="하위 메뉴 닫기" tabindex="-1"></button>
+
+<div class="main">
+  <main class="page" id="main">
+    <div class="page-crumb">
+      <span id="crumb-area">{{ part.short or part.label }}</span><span class="crumb-line" aria-hidden="true"></span>
+      <strong id="crumb">{{ ns.crumb }}</strong>
+      <span class="preview-tag" title="실행 환경">{{ env_text }}</span>
+    </div>
+    <div class="page-heading">
+      <div>
+        <h1 id="page-title">{{ title }}{% if part.id == 'home' %} <span aria-hidden="true">☀</span>{% endif %}</h1>
+        <p id="page-sub">{{ part.subtitle }}</p>
+      </div>
+      <div class="page-actions" id="page-actions"></div>
+    </div>
+    <section id="part-root" class="part-root" data-part="{{ part.id }}" aria-live="polite">
+      <div class="skeleton" style="height:140px"></div>
+    </section>
+    <div class="footer-note">
+      <span>REBOOT GLOBAL MARKETING WORKSPACE</span>
+      <span>판정·초안·AI 결과는 1차 참고용입니다. 최종 판단과 발송은 담당자가 합니다.</span>
+    </div>
+  </main>
+</div>
+
+<script id="reboot-boot" type="application/json">{{ boot | tojson }}</script>
+<script src="{{ asset('core', 'vendor/chart.umd.min.js') }}"></script>
+<script src="{{ asset('core', 'vendor/marked.min.js') }}"></script>
+<script src="{{ asset('core', 'vendor/purify.min.js') }}"></script>
+<script src="{{ asset('core', 'core.js') }}"></script>
+{% for f in js %}<script src="{{ asset('parts', f) }}"></script>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="robots" content="noindex, nofollow">
+<title>{% block title %}REBOOT — Marketing Workspace{% endblock %}</title>
+<link rel="icon" href="{{ asset('core', 'assets/favicon.svg') }}" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="{{ asset('core', 'base.css') }}">
+<script>
+  /* 테마를 화면이 그려지기 전에 적용 (깜빡임 방지): light · dark · auto */
+  try { var t = localStorage.getItem('reboot:theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'auto') document.documentElement.removeAttribute('data-theme'); } catch (e) {}
+</script>
+{% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% block body %}{% endblock %}
+</body>
+</html>

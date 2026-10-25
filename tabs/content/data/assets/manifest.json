@@ -1,0 +1,58 @@
+{
+  "_note": "Reboot 브랜드 자산 목록 (사용자 제공 2026-10-24 · 최종 패키지). 긴 쪽 2000px JPG. ref=true만 이미지 생성 참고 사진으로 자동 선택됩니다. priority가 작을수록 먼저 고릅니다. 리볼버 모양 젤리가 보이는 사진과 글자가 많은 캐릭터 시트는 ref=false (화면에서 보기만).",
+  "version": "2026-10-24",
+  "assets": [
+    {"id": "logo-black-on-white", "file": "logo/logo-black-on-white.jpg", "type": "logo", "ref": false, "priority": 1, "desc": "로고 · 흰 배경 검정 글자 + 네온 라임 OO"},
+    {"id": "logo-white-on-black", "file": "logo/logo-white-on-black.jpg", "type": "logo", "ref": false, "priority": 1, "desc": "로고 · 검정 배경 흰 글자 + 네온 라임 OO"},
+    {"id": "logo-neon-glow", "file": "logo/logo-neon-glow.jpg", "type": "logo", "ref": false, "priority": 1, "desc": "로고 · 검정 배경 · OO 네온 발광"},
+
+    {"id": "drink-original-trio", "file": "drink/drink-original-trio.jpg", "type": "product", "product_id": "drink_original", "flavor": null, "view": "trio", "ref": true, "priority": 1, "desc": "Drink Original 라임·레몬·체리 3병 정면"},
+    {"id": "drink-original-cherry-front", "file": "drink/drink-original-cherry-front.jpg", "type": "product", "product_id": "drink_original", "flavor": "cherry", "view": "front", "ref": true, "priority": 2, "desc": "Drink Original 체리 · 정면"},
+    {"id": "drink-original-cherry-angle", "file": "drink/drink-original-cherry-angle.jpg", "type": "product", "product_id": "drink_original", "flavor": "cherry", "view": "angle", "ref": true, "priority": 3, "desc": "Drink Original 체리 · 눕힌 각도"},
+    {"id": "drink-original-lemon-front", "file": "drink/drink-original-lemon-front.jpg", "type": "product", "product_id": "drink_original", "flavor": "lemon", "view": "front", "ref": true, "priority": 2, "desc": "Drink Original 레몬 · 정면"},
+    {"id": "drink-original-lemon-angle", "file": "drink/drink-original-lemon-angle.jpg", "type": "product", "product_id": "drink_original", "flavor": "lemon", "view": "angle", "ref": true, "priority": 3, "desc": "Drink Original 레몬 · 눕힌 각도"},
+    {"id": "drink-original-lime-front", "file": "drink/drink-original-lime-front.jpg", "type": "product", "product_id": "drink_original", "flavor": "lime", "view": "front", "ref": true, "priority": 2, "desc": "Drink Original 라임 · 정면"},
+    {"id": "drink-original-lime-angle", "file": "drink/drink-original-lime-angle.jpg", "type": "product", "product_id": "drink_original", "flavor": "lime", "view": "angle", "ref": true, "priority": 3, "desc": "Drink Original 라임 · 눕힌 각도"},
+    {"id": "drink-original-cherry-spec", "file": "drink/drink-original-cherry-spec.jpg", "type": "product", "product_id": "drink_original", "flavor": "cherry", "view": "spec", "ref": true, "priority": 5, "desc": "Drink Original 체리 · 규격도 (정면·옆·뒤·위·라벨)"},
+    {"id": "drink-original-lemon-spec", "file": "drink/drink-original-lemon-spec.jpg", "type": "product", "product_id": "drink_original", "flavor": "lemon", "view": "spec", "ref": true, "priority": 5, "desc": "Drink Original 레몬 · 규격도"},
+    {"id": "drink-original-lime-spec", "file": "drink/drink-original-lime-spec.jpg", "type": "product", "product_id": "drink_original", "flavor": "lime", "view": "spec", "ref": true, "priority": 5, "desc": "Drink Original 라임 · 규격도"},
+
+    {"id": "drink-balance-trio", "file": "drink/drink-balance-trio.jpg", "type": "product", "product_id": "drink_balance", "flavor": null, "view": "trio", "ref": true, "priority": 1, "desc": "Drink Balance 라임·레몬·체리 3병 정면 (ZERO SUGAR)"},
+    {"id": "drink-balance-cherry-front", "file": "drink/drink-balance-cherry-front.jpg", "type": "product", "product_id": "drink_balance", "flavor": "cherry", "view": "front", "ref": true, "priority": 2, "desc": "Drink Balance 체리 · 정면"},
+    {"id": "drink-balance-cherry-angle", "file": "drink/drink-balance-cherry-angle.jpg", "type": "product", "product_id": "drink_balance", "flavor": "cherry", "view": "angle", "ref": true, "priority": 3, "desc": "Drink Balance 체리 · 눕힌 각도"},
+    {"id": "drink-balance-lemon-front", "file": "drink/drink-balance-lemon-front.jpg", "type": "product", "product_id": "drink_balance", "flavor": "lemon", "view": "front", "ref": true, "priority": 2, "desc": "Drink Balance 레몬 · 정면"},
+    {"id": "drink-balance-lemon-angle", "file": "drink/drink-balance-lemon-angle.jpg", "type": "product", "product_id": "drink_balance", "flavor": "lemon", "view": "angle", "ref": true, "priority": 3, "desc": "Drink Balance 레몬 · 눕힌 각도"},
+    {"id": "drink-balance-lime-front", "file": "drink/drink-balance-lime-front.jpg", "type": "product", "product_id": "drink_balance", "flavor": "lime", "view": "front", "ref": true, "priority": 2, "desc": "Drink Balance 라임 · 정면"},
+    {"id": "drink-balance-lime-angle", "file": "drink/drink-balance-lime-angle.jpg", "type": "product", "product_id": "drink_balance", "flavor": "lime", "view": "angle", "ref": true, "priority": 3, "desc": "Drink Balance 라임 · 눕힌 각도"},
+    {"id": "drink-balance-cherry-spec", "file": "drink/drink-balance-cherry-spec.jpg", "type": "product", "product_id": "drink_balance", "flavor": "cherry", "view": "spec", "ref": true, "priority": 5, "desc": "Drink Balance 체리 · 규격도"},
+    {"id": "drink-balance-lemon-spec", "file": "drink/drink-balance-lemon-spec.jpg", "type": "product", "product_id": "drink_balance", "flavor": "lemon", "view": "spec", "ref": true, "priority": 5, "desc": "Drink Balance 레몬 · 규격도"},
+    {"id": "drink-balance-lime-spec", "file": "drink/drink-balance-lime-spec.jpg", "type": "product", "product_id": "drink_balance", "flavor": "lime", "view": "spec", "ref": true, "priority": 5, "desc": "Drink Balance 라임 · 규격도"},
+
+    {"id": "jelly-original-pouch-front", "file": "jelly/jelly-original-pouch-front.jpg", "type": "product", "product_id": "jelly_original", "flavor": null, "view": "pouch", "ref": true, "priority": 1, "desc": "Jelly Original 봉지 정면 (LIME · LEMON · CHERRY)"},
+    {"id": "jelly-original-pouch-scene-2", "file": "jelly/jelly-original-pouch-scene-2.jpg", "type": "product", "product_id": "jelly_original", "flavor": null, "view": "scene", "ref": true, "priority": 4, "desc": "Jelly Original 봉지 + 낱개 포장 모자·올가미"},
+    {"id": "jelly-original-pouch-scene", "file": "jelly/jelly-original-pouch-scene.jpg", "type": "product", "product_id": "jelly_original", "flavor": null, "view": "scene", "ref": false, "priority": 9, "desc": "Jelly Original 봉지 + 낱개 젤리 (리볼버 모양 포함 — 참고 사진으로 쓰지 않음)"},
+    {"id": "jelly-original-cherry-hat-wrapped", "file": "jelly/jelly-original-cherry-hat-wrapped.jpg", "type": "product", "product_id": "jelly_original", "flavor": "cherry", "view": "wrapped", "ref": true, "priority": 2, "desc": "Jelly Original 체리 · 카우보이 모자 · 낱개 포장"},
+    {"id": "jelly-original-lemon-lasso-wrapped", "file": "jelly/jelly-original-lemon-lasso-wrapped.jpg", "type": "product", "product_id": "jelly_original", "flavor": "lemon", "view": "wrapped", "ref": true, "priority": 2, "desc": "Jelly Original 레몬 · 올가미 · 낱개 포장"},
+    {"id": "jelly-original-lime-boot-wrapped", "file": "jelly/jelly-original-lime-boot-wrapped.jpg", "type": "product", "product_id": "jelly_original", "flavor": "lime", "view": "wrapped", "ref": true, "priority": 2, "desc": "Jelly Original 라임 · 카우보이 부츠 · 낱개 포장"},
+    {"id": "jelly-original-cherry-hat-spec", "file": "jelly/jelly-original-cherry-hat-spec.jpg", "type": "product", "product_id": "jelly_original", "flavor": "cherry", "view": "spec", "ref": true, "priority": 5, "desc": "Jelly Original 체리 모자 · 규격도 (포장 없음)"},
+    {"id": "jelly-original-lemon-lasso-spec", "file": "jelly/jelly-original-lemon-lasso-spec.jpg", "type": "product", "product_id": "jelly_original", "flavor": "lemon", "view": "spec", "ref": true, "priority": 5, "desc": "Jelly Original 레몬 올가미 · 규격도 (포장 없음)"},
+    {"id": "jelly-original-lime-boot-spec", "file": "jelly/jelly-original-lime-boot-spec.jpg", "type": "product", "product_id": "jelly_original", "flavor": "lime", "view": "spec", "ref": true, "priority": 5, "desc": "Jelly Original 라임 부츠 · 규격도 (포장 없음)"},
+
+    {"id": "jelly-balance-pouch-front", "file": "jelly/jelly-balance-pouch-front.jpg", "type": "product", "product_id": "jelly_balance", "flavor": null, "view": "pouch", "ref": true, "priority": 1, "desc": "Jelly Balance 봉지 정면 (ZERO SUGAR · BALANCE · CHERRY · LIME · LEMON)"},
+    {"id": "jelly-balance-pouch-scene", "file": "jelly/jelly-balance-pouch-scene.jpg", "type": "product", "product_id": "jelly_balance", "flavor": null, "view": "scene", "ref": false, "priority": 9, "desc": "Jelly Balance 봉지 + 낱개 젤리 (리볼버 모양 포함 — 참고 사진으로 쓰지 않음)"},
+    {"id": "jelly-balance-cherry-hat-wrapped", "file": "jelly/jelly-balance-cherry-hat-wrapped.jpg", "type": "product", "product_id": "jelly_balance", "flavor": "cherry", "view": "wrapped", "ref": true, "priority": 2, "desc": "Jelly Balance 체리 · 카우보이 모자 · 낱개 포장"},
+    {"id": "jelly-balance-lemon-lasso-wrapped", "file": "jelly/jelly-balance-lemon-lasso-wrapped.jpg", "type": "product", "product_id": "jelly_balance", "flavor": "lemon", "view": "wrapped", "ref": true, "priority": 2, "desc": "Jelly Balance 레몬 · 올가미 · 낱개 포장"},
+    {"id": "jelly-balance-lime-boot-wrapped", "file": "jelly/jelly-balance-lime-boot-wrapped.jpg", "type": "product", "product_id": "jelly_balance", "flavor": "lime", "view": "wrapped", "ref": true, "priority": 2, "desc": "Jelly Balance 라임 · 카우보이 부츠 · 낱개 포장"},
+    {"id": "jelly-balance-cherry-hat-spec", "file": "jelly/jelly-balance-cherry-hat-spec.jpg", "type": "product", "product_id": "jelly_balance", "flavor": "cherry", "view": "spec", "ref": true, "priority": 5, "desc": "Jelly Balance 체리 모자 · 규격도 (포장 없음)"},
+    {"id": "jelly-balance-lemon-lasso-spec", "file": "jelly/jelly-balance-lemon-lasso-spec.jpg", "type": "product", "product_id": "jelly_balance", "flavor": "lemon", "view": "spec", "ref": true, "priority": 5, "desc": "Jelly Balance 레몬 올가미 · 규격도 (포장 없음)"},
+    {"id": "jelly-balance-lime-boot-spec", "file": "jelly/jelly-balance-lime-boot-spec.jpg", "type": "product", "product_id": "jelly_balance", "flavor": "lime", "view": "spec", "ref": true, "priority": 5, "desc": "Jelly Balance 라임 부츠 · 규격도 (포장 없음)"},
+
+    {"id": "rebu-poses-fullbody", "file": "character/rebu-poses-fullbody.jpg", "type": "character", "ref": true, "priority": 1, "desc": "Rebu 전신 · 표정·포즈 15종 (글자 없음)"},
+    {"id": "rebu-faces", "file": "character/rebu-faces.jpg", "type": "character", "ref": true, "priority": 2, "desc": "Rebu 상반신 · 표정 15종 (글자 없음)"},
+    {"id": "rebu-model-sheet", "file": "character/rebu-model-sheet.jpg", "type": "character", "ref": true, "priority": 3, "desc": "Rebu 정면·옆·위·뒤 모델 시트 + 2D 로고"},
+    {"id": "rebu-model-sheet-labeled", "file": "character/rebu-model-sheet-labeled.jpg", "type": "character", "ref": false, "priority": 9, "desc": "Rebu 모델 시트 (제목 글자 있음 — 보기용)"},
+    {"id": "rebu-profile-sheet", "file": "character/rebu-profile-sheet.jpg", "type": "character", "ref": false, "priority": 9, "desc": "Rebu 프로필 시트 (프로필 문구는 공식 설정 아님 — 보기용)"},
+    {"id": "rebu-fantasy-sheet", "file": "character/rebu-fantasy-sheet.jpg", "type": "character", "ref": false, "priority": 9, "desc": "Rebu 시트 (외국어 문구 있음 — 보기용)"},
+    {"id": "rebu-thumb", "file": "character/rebu-thumb.jpg", "type": "character", "ref": false, "priority": 9, "desc": "Rebu 썸네일 256px (시트 화면 표시용 — 생성 참고 사진 아님)"}
+  ]
+}

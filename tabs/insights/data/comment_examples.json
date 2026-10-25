@@ -1,0 +1,829 @@
+{
+ "_설명": "유튜브 댓글 VOC 분류의 퓨샷 예시 · 채점용 정답 (2026-10-25). 시연 DB 댓글 100건, 작성자 이름 · 링크 · 출연자 이름은 지움. 정답은 HK 확정 (초안 Gemini), 예시의 reason은 Claude Code 작성. use=example 24건은 AI 프롬프트에 예시로 넣고, use=test 76건은 정확도 검증에서만 씀 (예시와 겹치지 않음). topic=none은 질문 아님.",
+ "items": [
+  {
+   "no": 1,
+   "use": "test",
+   "text": "\"have an ibuprofen\" YOU my friend have never had alcohol poisoning. Lol",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 2,
+   "use": "test",
+   "text": "I'm gonna put this to the test.. Right now",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 3,
+   "use": "example",
+   "text": "I swear i will never ever drink again",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "다시는 안 마시겠다는 한탄, 해결책 이야기 없음"
+  },
+  {
+   "no": 4,
+   "use": "test",
+   "text": "I am SO done with alcohol. MARK MY WORDS!!!!!",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 5,
+   "use": "test",
+   "text": "I asked a Marine this once, his response was: \"Hangovers only happen when you sober up. If you're always drunk, you're never hungover.\"",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 6,
+   "use": "example",
+   "text": "Omg you look so pretty the glasses look good on you It's a compliment ☺️❤",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "출연자 외모 칭찬"
+  },
+  {
+   "no": 7,
+   "use": "test",
+   "text": "How curious, I was drawing a comic about 2 dudes and a doctor(a physician specifically) that's experimenting in a medication that'll decrease hangover symptoms and improve enzymatic breakdown of alcohol whilst preserving liver function. Although, it's no Doctor Stone",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 8,
+   "use": "example",
+   "text": "Or... Gatorade/powerade. The only cure is hydration and time.",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "이온음료 · 수분 보충이 해결책이라는 의견, 질문 아님"
+  },
+  {
+   "no": 9,
+   "use": "test",
+   "text": "I actually have the absolute perfect hangover cure.A bottle of chocolate milk with a bag of Fritos will get rid of gut rot the next day.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 10,
+   "use": "example",
+   "text": "These were NOT cures man. Preventative advice doesn't help me, now I'm hungover and educated about what I could have done last night",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "영상 속 해결책이 도움 안 됐다는 평가 → 해결책 이야기라 관련"
+  },
+  {
+   "no": 11,
+   "use": "test",
+   "text": "What is the most helpful for me is chugging as much water as I can before bed. Also while I’m out I try to grab a bite to eat before I go home because the morning after drinking a lot I find it very hard to eat. Plus I feel like having food helps in general.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 12,
+   "use": "example",
+   "text": "Who else has the opposite relationship with their dad?",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "가족 이야기 잡담, 질문이어도 관련 없음"
+  },
+  {
+   "no": 13,
+   "use": "example",
+   "text": "What are the products’ main purpose? For example, most ‘anti hangover supplements’ in Denmark contains mostly electrolytes to restore hydration or salt/sugar combo to restore your body’s salt/sugar levels",
+   "relevant": true,
+   "question": true,
+   "topic": "ingredients",
+   "reason": "숙취해소 보조제가 무엇으로 만들어졌는지 묻는 질문 → 성분"
+  },
+  {
+   "no": 14,
+   "use": "example",
+   "text": "A tall glass of water with ice and aspirin works for me.",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "물 · 아스피린이 효과 있었다는 해결책 경험, 질문 아님"
+  },
+  {
+   "no": 15,
+   "use": "test",
+   "text": "What’s your best hangover tip?!",
+   "relevant": true,
+   "question": true,
+   "topic": "works"
+  },
+  {
+   "no": 16,
+   "use": "example",
+   "text": "I remeber hearing [name] say something to the effect that bad/cheap tequila cause hangovers more than good stuff. and i have also hear that pure alcohols like vodka cause less hangovers. is that true?",
+   "relevant": true,
+   "question": true,
+   "topic": "works",
+   "reason": "싼 술이 숙취를 더 일으킨다는 말이 사실인지 묻는 질문 → 효과"
+  },
+  {
+   "no": 17,
+   "use": "example",
+   "text": "Wat about vitamin b before drinking?",
+   "relevant": true,
+   "question": true,
+   "topic": "when",
+   "reason": "술 마시기 전에 비타민 B를 먹는 게 어떤지 묻는 질문 → 복용 시점"
+  },
+  {
+   "no": 18,
+   "use": "test",
+   "text": "Lady officer is very nice salute for hard work",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 19,
+   "use": "test",
+   "text": "When people tell me I'll regret that in the morning, I sleep till noon...",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 20,
+   "use": "test",
+   "text": "Just drink more to get rid of a hangover",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 21,
+   "use": "test",
+   "text": "One of the most surprising cures, given you don’t need to be 0 BAC for work, is to have a beer when you wake up. It will clear the hangover, you’ll be able to function far better, and once the beer wears off you’re sober until you drink again.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 22,
+   "use": "test",
+   "text": "Tried, nope. My hangover did not cure my work.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 23,
+   "use": "test",
+   "text": "This sounds really good, and maybe not just for hangovers, but for colds/flu? Sounds very healthy",
+   "relevant": true,
+   "question": true,
+   "topic": "works"
+  },
+  {
+   "no": 24,
+   "use": "test",
+   "text": "Had one hang over. It was bad. Friend said a shower would help, shower didnt help. Shower made it worse. I ended up going back to bed and getting up around 3:30. Had a pounding headache for the rest of the day but im used to that.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 25,
+   "use": "test",
+   "text": "I’ve only been hungover once, I always drink tons of water even if I’m drunk.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 26,
+   "use": "test",
+   "text": "To help hangovers: Take activated charcoal Drink electrolyte drink( often sold as a first aid for dehydration) Eat something, don’t stay all day on empty stomach. If you feel nauseous, eat small portions. Take aspirin Rest in bed and try to sleep as much as possible",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 27,
+   "use": "test",
+   "text": "Mala idea probar cosas sin saber de medisina xd no soy doctor pero no basalir bien 😮😢 like",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 28,
+   "use": "test",
+   "text": "My friend says start drinking in the morning as you wake up -",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 29,
+   "use": "test",
+   "text": "ADVICE: before going out, EAT A LOT... THEN have at least 2 tablespoons of honey THEN drink slowly at first (say the 1st hour) Will let you figure out why your hangovers are almost a thing of the past..",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 30,
+   "use": "example",
+   "text": "have to be randomized double blind placebo controled to be sure it works ask nutritionfacts",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "효과를 믿으려면 임상시험이 필요하다는 효과 의견"
+  },
+  {
+   "no": 31,
+   "use": "test",
+   "text": "Number 1: lactated ringer Quickest hangover cure ever!😂",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 32,
+   "use": "test",
+   "text": "A full English breakfast is a brilliant hangover cure!!",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 33,
+   "use": "example",
+   "text": "I'm So Hungover Right Now, I'm Never Drinking Again",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "숙취 상태 한탄"
+  },
+  {
+   "no": 34,
+   "use": "test",
+   "text": "Dude, Dr. [name] is the best! Not only he answers awkward questions but he also helps with hangovers. I wish doctors at my local hospital would be this helpful!",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 35,
+   "use": "test",
+   "text": "Wait does pickle juice work ! Can I talk Tylenol or not ! What medicine does work and how do I stop vomiting ?",
+   "relevant": true,
+   "question": true,
+   "topic": "safety"
+  },
+  {
+   "no": 36,
+   "use": "test",
+   "text": "Don't know why this is so comforting right now, worst hangover in years...",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 37,
+   "use": "test",
+   "text": "Wow..I think her being a teacher previously gave her the patients and compassion to deal with the drunken. God bless their souls",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 38,
+   "use": "test",
+   "text": "What should I do? Her: call me 😅😅",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 39,
+   "use": "test",
+   "text": "Well thanks [name], where were you last night? Does me no good this morning while I’m hungover! Hahaha but I happen to agree",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 40,
+   "use": "test",
+   "text": "Best hangover cure? Either stay drunk, or dont drink at all",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 41,
+   "use": "test",
+   "text": "I'm probably one of those 25%. But maybe because I'm only 25 y.o )) I am usually just thirsty in the morning. But recently I've got another problem. My nose gets clogged when I wake up but it only lasts like a couple hours. It doesn't happen other than after drinking alcohol.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 42,
+   "use": "test",
+   "text": "I’m so fucked up rn why would I ever drink again after this ???",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 43,
+   "use": "test",
+   "text": "Drinking with no side effect????This advice…..would turn me into an alcoholic 😂😂😂😂😂",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 44,
+   "use": "example",
+   "text": "Amla powder drinked in water is a extremely healthy hangover KILLER! 🤗❤️🌱",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "암라 가루가 숙취에 좋다는 해결책 추천"
+  },
+  {
+   "no": 45,
+   "use": "test",
+   "text": "How about a good run the next morning. Always worked for me.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 46,
+   "use": "test",
+   "text": "My life is complete, I've finally seen my favorite beer can in one of your shorts😂 I'll drink a yuengling for ya tonight!",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 47,
+   "use": "test",
+   "text": "I dont drink Watching this video just in case I drink tho 😂",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 48,
+   "use": "test",
+   "text": "I am fuc*King thrashed over here. I had fluids coming out every hole",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 49,
+   "use": "test",
+   "text": "I heard from a USMC friend of mine that what they do the day after a “gathering night” was to have multivitamins, shit ton of Gatorade with vitamin C and a McDonalds drive through of the fattiest, unhealthiest garbage of a burger they could find that could give 10 normal people a stroke right after a type two diabetes He said give it some time to digest and it works like a charm",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 50,
+   "use": "example",
+   "text": "\"I'm hungover\" \"Let me say a bunch of words at you and then use a blender next to your head\"",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "영상 장면을 흉내 낸 농담"
+  },
+  {
+   "no": 51,
+   "use": "test",
+   "text": "im too hungover to listen to this. hair of the dog it is.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 52,
+   "use": "test",
+   "text": "I was totally ready for a mythical solution",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 53,
+   "use": "test",
+   "text": "Shot of vodka, hot chicken soup, and back to sleep 🍸🍲💤",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 54,
+   "use": "test",
+   "text": "'THE LIGHT' The hoarseness of her voice is something 😂",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 55,
+   "use": "example",
+   "text": "What about electrolytes doc? I try to drink an all glass of water mixed with electrolytes the night before and it helps! I also find helpful lemon water in the morning and juice/fruit smoothie to bring my sugar levels back up.",
+   "relevant": true,
+   "question": true,
+   "topic": "ingredients",
+   "reason": "전해질이 숙취에 도움이 되는지 묻는 질문 → 성분"
+  },
+  {
+   "no": 56,
+   "use": "test",
+   "text": "If you’re hungover this is what he said: Eat breakfast, take a nap, vit B/C, ibuprofen, drink water.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 57,
+   "use": "test",
+   "text": "Prevent: drink lots of water while drinking alcohol. Prevents dehydration. Relieve: 1- a little alcohol. Withdrawal is real. 2- drink water. Dehydration is a foe. 3- drink something sweet. Blood sugar makes everything feel better. 4- eat. You probably didn't eat last night, did you? Too busy drinking. Eat. You'll feel better.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 58,
+   "use": "test",
+   "text": "Water, vitamin c, tylenol, something sweet like a donut. Gotta get hydrated and get your glucose up to normal levels",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 59,
+   "use": "example",
+   "text": "Where was this 12 hours ago, guys??",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "해결책 영상을 더 일찍 봤어야 했다는 반응, 물음표가 있어도 궁금증 아님"
+  },
+  {
+   "no": 60,
+   "use": "example",
+   "text": "I think they should put a disclaimer that you shouldn't take paracetamol with alcohol",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "술과 진통제를 함께 먹지 말라는 안전 의견, 질문 아님"
+  },
+  {
+   "no": 61,
+   "use": "test",
+   "text": "[name] is just a lovely human. They're all great but he was legit just here for anything.",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 62,
+   "use": "example",
+   "text": "Weird question why do you say zed instead of z ?",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "말투에 대한 질문, 제품 · 해결책과 무관"
+  },
+  {
+   "no": 63,
+   "use": "example",
+   "text": "Thank you, I drink ACV, it contains 5% alcohol. Is that a problem?",
+   "relevant": true,
+   "question": true,
+   "topic": "safety",
+   "reason": "알코올이 든 식초 음료를 먹어도 되는지 묻는 질문 → 안전"
+  },
+  {
+   "no": 64,
+   "use": "test",
+   "text": "The lashes doesn’t want to come out of the hangover 😂😂😂",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 65,
+   "use": "test",
+   "text": "Best is a big, greasy breakfast. Bacon, eggs, toast with loads of butter. 🥓 🍳 🍞 🧈",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 66,
+   "use": "example",
+   "text": "I have never tried cow blood, but have had pig blood several times. I would love to try this next time im in korea.",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "선지 음식 경험담, 숙취 해결책 아님"
+  },
+  {
+   "no": 67,
+   "use": "test",
+   "text": "Chewing on ice cubes for a while helps me from getting a hangover. I'll have a few drinks then take a break and chew on ice and I'm usually good.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 68,
+   "use": "test",
+   "text": "The way food is fighting back💔",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 69,
+   "use": "test",
+   "text": "Why don’t you get hungover when you’re younger? In my first year drinking I just didn’t get them 18-19",
+   "relevant": true,
+   "question": true,
+   "topic": "works"
+  },
+  {
+   "no": 70,
+   "use": "test",
+   "text": "*well yes i did get a little too crazy over new years*",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 71,
+   "use": "test",
+   "text": "Im curious how does sugar and food consumption affect this process, I know sugar makes hangovers a lot worse but food also makes drinking not hit as hard, or rather no food makes it absorb a lot faster, but does that affect the hangover? and how does the sugar affect it?",
+   "relevant": true,
+   "question": true,
+   "topic": "ingredients"
+  },
+  {
+   "no": 72,
+   "use": "test",
+   "text": "Youtube is scary the day I go all in drinking this gets recommended",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 73,
+   "use": "test",
+   "text": "The best thing I do is make sure to eat some red meat before I drink and let it fully digest, and definitely eat after drinking. I also hydrate as I drink. For instance, one of my mixed drinks is Vodka with blue Gatorade Zero and crushed ice, plus I drink a glass of water for every few mixed drinks I have. I wake up, immediately do what this guy does, but only my smoothie has more stuff in it.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 74,
+   "use": "test",
+   "text": "My best hangover cure before and after is an anti inflammatory like tylenol before sleep and gym the day I'm hungover. Idk why but they always helped me",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 75,
+   "use": "example",
+   "text": "Beer + Paracetamol AKA Acetaminophen BKA Tylenol damages the liver.",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "진통제와 술이 간에 해롭다는 안전 정보"
+  },
+  {
+   "no": 76,
+   "use": "example",
+   "text": "CAN YOU BUY GELATO 🍦IT WAS VERY GOOD 👍",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "buy가 들어가도 젤라토 이야기, 숙취와 무관"
+  },
+  {
+   "no": 77,
+   "use": "test",
+   "text": "Watching food videos during my self-imposed fast. 36 hrs now without food",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 78,
+   "use": "test",
+   "text": "\"in korea we really value human rights. as long as you're not black, japanese, indian, homosexual, under 30 years of age, or trying to make a difference\"",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 79,
+   "use": "test",
+   "text": "Needed this after last night 😂 My cure for less intense hangovers is lemon water in the morning",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 80,
+   "use": "test",
+   "text": "Never had cow blood. But I like Korean food.",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 81,
+   "use": "test",
+   "text": "We in India have cumin seeds and fennel seeds soaked in water for approximately 4/6 hours as a remedy for hangover. Works in most cases. Also its a given to have some nuts with alcohol, maybe because of their B1 content. Maybe try them?",
+   "relevant": true,
+   "question": true,
+   "topic": "ingredients"
+  },
+  {
+   "no": 82,
+   "use": "test",
+   "text": "Where was this on Wednesday when I had a massive hangover lol",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 83,
+   "use": "test",
+   "text": "Mexican hangover cure : another beer in the morning",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 84,
+   "use": "test",
+   "text": "It’s really not that hard to just eat and drink the exact same thing for both tests dude.",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 85,
+   "use": "test",
+   "text": "If you eat oreo's the crème is made from animal fat. So think twice before making ugly comments about \"Cow Blood\".",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 86,
+   "use": "test",
+   "text": "I've never really experienced a hangover, except for now while Im on a keto diet. Does the lack of sugar increase likelihood of getting a hangover? I used to drink vodka with sugary drinks like redbull and cranberry, but I've switched to tonic water for the diet.",
+   "relevant": true,
+   "question": true,
+   "topic": "ingredients"
+  },
+  {
+   "no": 87,
+   "use": "example",
+   "text": "Можно подержать голову в воде 10 минут и тогда похмелье не будет мучить никогда",
+   "relevant": false,
+   "question": false,
+   "topic": "none",
+   "reason": "머리를 물에 담그라는 농담, 해결책으로 보기 어려움"
+  },
+  {
+   "no": 88,
+   "use": "test",
+   "text": "So I’m dying with a mean hangover right now and about 14 minutes in and haven’t learned a damn thing about how to fix it 🤣",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 89,
+   "use": "test",
+   "text": "\"I'm hungover\" \"Really?\" \"No\"",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 90,
+   "use": "test",
+   "text": "Its really great to know how it works , but how many Mg of vitamin B1 to take for the one time to get a profit of it 😀",
+   "relevant": true,
+   "question": true,
+   "topic": "ingredients"
+  },
+  {
+   "no": 91,
+   "use": "test",
+   "text": "Do you have a hangover cure-all or prevention that you swear by? Sound off in the comments! Let’s hear them!",
+   "relevant": true,
+   "question": true,
+   "topic": "works"
+  },
+  {
+   "no": 92,
+   "use": "example",
+   "text": "1st- 6/10- I hate beer- beer and ibuprofen nah. 2nd- 9/10 standard. 3rd 10/10- ramen and electrolytes. 4th- I wasn’t able to taste- 8/10.",
+   "relevant": true,
+   "question": false,
+   "topic": "none",
+   "reason": "영상 속 해결책들을 점수로 매긴 후기"
+  },
+  {
+   "no": 93,
+   "use": "example",
+   "text": "Is it bad that my liver hurts?",
+   "relevant": true,
+   "question": true,
+   "topic": "safety",
+   "reason": "간이 아픈데 괜찮은지 묻는 건강 질문 → 안전"
+  },
+  {
+   "no": 94,
+   "use": "test",
+   "text": "1.working out 2.coffee 3.drink in the morning 4.fast food and soda 5.breakfast sandwich and a water",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 95,
+   "use": "test",
+   "text": "I like lots of water before going to sleep then at work sucking on the oxygen torch every time I walk by it, works great",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 96,
+   "use": "test",
+   "text": "I see people commenting they see more people complaining about people complaining about blood cow or intestines than people complaining about cow blood or intestines..",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 97,
+   "use": "test",
+   "text": "3:24 straight to jail. Black pudding is the best part.",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 98,
+   "use": "test",
+   "text": "It causes the blood vessels in your face and head to constrict, which reduces the pounding feeling of the headache. It works to reduce migraine pain temporarily as well. As for the hangover...you'd also do well to just...drink the ice water. Preferably immediately after the alcohol. Because 90% of a hangover is a dehydration headache.",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 99,
+   "use": "test",
+   "text": "I didn't discover hangovers until I moved to South Korea.",
+   "relevant": false,
+   "question": false,
+   "topic": "none"
+  },
+  {
+   "no": 100,
+   "use": "test",
+   "text": "Red bull is the best hangover cure for me. After drinking it, the nausea really leaves the body. Nothing else works as good",
+   "relevant": true,
+   "question": false,
+   "topic": "none"
+  }
+ ]
+}

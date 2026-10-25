@@ -1,0 +1,41 @@
+{
+  "_설명": "홈 · 미국 주류 업계 뉴스 — 구글 뉴스 RSS 검색어 (2026-10-24 팀 결정 · 후보 20개를 실제 검색으로 검증 후 9개 고정 → 같은 날 무알코올 · 기능성을 합쳐 8개). 실제 주소 = https://news.google.com/rss/search?q={query} when:{when}&hl=en-US&gl=US&ceid=US:en. kind: signal(적지만 꼭 봐야 함 · 카드 자리 보장) / flow(많음 · AI 점수로 경쟁). area가 같은 검색어는 한 분야로 묶어 카드 3개까지. feed: 검색어 대신 업계지 RSS 주소를 직접 읽음 (2026-10-24 추가 · robots.txt 확인) — source는 화면에 보일 매체 이름. kind trend: 업계 뉴스와 따로 트렌드 칸(최대 4개). 수정 후 '지금 수집'으로 확인",
+  "when": "14d",
+  "surgeRatio": 1.5,
+  "surgeMinRecent": 5,
+  "areas": [
+    {"id": "category", "label": "숙취 카테고리", "kind": "signal"},
+    {"id": "competitor", "label": "경쟁사", "kind": "signal"},
+    {"id": "regulation", "label": "규제", "kind": "signal"},
+    {"id": "behavior", "label": "음주 행태", "kind": "flow"},
+    {"id": "nonalc", "label": "무알코올 · 기능성", "kind": "flow"},
+    {"id": "sales", "label": "주류 판매", "kind": "flow"},
+    {"id": "kfood", "label": "K-푸드", "kind": "flow"},
+    {"id": "trend", "label": "트렌드", "kind": "trend"}
+  ],
+  "groups": [
+    {"id": "category", "area": "category", "label": "숙취 제품 · 성분", "query": "hangover (supplement OR electrolyte OR DHM OR probiotic)"},
+    {"id": "competitors", "area": "competitor", "label": "경쟁사 (큰 브랜드)", "query": "ZBiotics OR \"Liquid I.V.\" OR DripDrop OR \"Cheers Restore\"", "_메모": "경쟁사 분석 상위 브랜드로 월 1회 갱신"},
+    {"id": "fda", "area": "regulation", "label": "FDA · 영양제 규제", "query": "FDA \"dietary supplement\""},
+    {"id": "sober", "area": "behavior", "label": "절주 · 음주 감소", "query": "\"sober curious\" OR \"drinking less\" OR \"Gen Z drinking\""},
+    {"id": "consumption", "area": "behavior", "label": "음주 조사 · 연구", "query": "\"alcohol consumption\" (survey OR study OR Gallup)"},
+    {"id": "nonalc", "area": "nonalc", "label": "무알코올 · 기능성 음료", "query": "\"non-alcoholic\" (beer OR spirits) OR \"functional beverage\"", "_메모": "2026-10-24 무알코올 · 기능성 검색어 2개를 1개로 합침 (한 분야 쏠림 줄이기)"},
+    {"id": "sales", "area": "sales", "label": "주류 판매", "query": "\"alcohol sales\" OR \"spirits sales\" OR \"beer sales\""},
+    {"id": "kfood", "area": "kfood", "label": "K-푸드 · 한국 숙취해소제", "query": "\"Korean hangover\" OR \"Korean snacks\" OR \"K-food\" (US OR America)", "allowKorean": true},
+    {"id": "bevnet", "area": "competitor", "label": "BevNET (음료 업계지)", "source": "BevNET", "feed": "https://www.bevnet.com/feed"},
+    {"id": "nutra", "area": "regulation", "label": "NutraIngredients-USA (성분 · 규제)", "source": "NutraIngredients-USA", "feed": "https://www.nutraingredients-usa.com/arc/outboundfeeds/rss/"},
+    {"id": "marketingdive", "area": "trend", "label": "Marketing Dive (마케팅)", "source": "Marketing Dive", "feed": "https://www.marketingdive.com/feeds/news/"},
+    {"id": "modernretail", "area": "trend", "label": "Modern Retail (D2C · 유통)", "source": "Modern Retail", "feed": "https://www.modernretail.co/feed/"},
+    {"id": "mintel", "area": "trend", "label": "Mintel (소비자 트렌드)", "source": "Mintel", "feed": "https://www.mintel.com/feed/"},
+    {"id": "nosh", "area": "trend", "label": "NOSH (식음료 신제품)", "source": "NOSH", "feed": "https://www.nosh.com/feed"}
+  ],
+  "exclude": ["DUI", "drunk driving", "crash", "arrest", "killed", "fatal", "underage", "minors"],
+  "filters": {
+    "_설명": "AI 전에 규칙으로 버림 (무료). metaphor: 앞 단어 + hangover (예: AI hangover). personnel: 인사 동사와 직책이 함께 있으면 인사 소식 (예: names ... CEO). foreign: 제목에 이 나라가 있고 usWords가 없으면 버림 (대소문자 구분). 한국어 제목은 allowKorean 검색어만 남김",
+    "metaphor": ["AI", "tariff", "election", "market", "sugar", "crypto", "stock", "debt", "Fed", "policy", "economic", "political", "pandemic", "deficit", "inflation", "earnings", "tech", "merger", "trade", "budget", "rate", "bitcoin", "post-election", "DOGE", "Wall Street"],
+    "personnel": ["appoints", "appointed", "names", "named", "hires", "hired", "taps", "promotes", "promoted", "steps down", "retires", "to retire"],
+    "roles": ["CEO", "CFO", "COO", "CMO", "CTO", "president", "chief", "VP", "vice president", "director", "head of", "chair", "chairman"],
+    "foreign": ["UK", "U.K.", "Britain", "British", "England", "Scotland", "Ireland", "India", "Indian", "China", "Chinese", "Australia", "Australian", "Canada", "Canadian", "Europe", "European", "EU", "Japan", "Japanese", "Spain", "France", "French", "Germany", "Mexico", "New Zealand", "Singapore", "Philippines", "Vietnam", "Thailand", "Indonesia", "Malaysia", "Taiwan", "Hong Kong", "Brazil", "Italy", "Netherlands", "Russia", "South Africa", "Nigeria", "Kenya", "Dubai", "UAE", "Saudi", "Korea", "Seoul"],
+    "usWords": ["US", "U.S.", "USA", "America", "American", "United States"]
+  }
+}

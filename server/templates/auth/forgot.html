@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}비밀번호 찾기 · REBOOT{% endblock %}
+{% block body_class %}auth-body{% endblock %}
+{% block body %}
+<main class="auth-card">
+  <h1>비밀번호 찾기</h1>
+  <p class="lead">이메일로 재설정하는 기능은 추후 구현 예정입니다.</p>
+  <p class="note">팀 관리자에게 비밀번호 초기화를 요청하세요. 관리자는 <b>설정 › 계정</b>에서 바꾸거나,
+    터미널에서 <code>flask --app server set-password 이메일</code>을 실행합니다.</p>
+  <p style="margin-top:22px"><a class="btn block" href="{{ url_for('auth.login') }}">로그인으로 돌아가기</a></p>
+</main>
+{% endblock %}

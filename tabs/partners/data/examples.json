@@ -1,0 +1,18 @@
+{
+  "_note": "화면 확인용 가상 업체 예시입니다 (실제 업체 아님 · example.com). 실제 파일(top50catering.csv · US_Influencer_Public_Contacts_72.xlsx)은 화면에서 올립니다. '예시 데이터로 둘러보기'와 '양식 내려받기'에 씁니다.",
+  "catering": {
+    "header": ["No", "Company Name", "Contact Email", "Phone Number", "Official Website URL", "Office Location", "Category Focus", "Why Relevant"],
+    "rows": [
+      ["예시1", "예시) Sample Catering A", "events@example.com", "", "https://example.com", "Austin, TX (예시)", "Festival & concert mobile bar service (예시)", "예시 행 — 화면 확인용 가상 업체입니다"],
+      ["예시2", "예시) Sample Rooftop Bar Co.", "hello@example.com", "", "https://example.com", "Miami, FL (예시)", "Rooftop & pool party cocktail catering, VIP events (예시)", "예시 행 — 화면 확인용 가상 업체입니다"]
+    ]
+  },
+  "influencer": {
+    "title": ["US Influencer Public Contacts — 양식 (예시)", "공개된 연락처만 적습니다. 1~5행은 설명, 6행이 머리글입니다."],
+    "header": ["번호", "업체명", "공개 이메일", "공개 전화/문자", "공식 사이트 URL", "미국 시장 범위", "서비스 형태", "서비스/검토 이유", "주의/연락처 용도"],
+    "rows": [
+      ["예시)", "예시) Sample Creator Agency", "creators@example.com", "", "https://example.com", "미국 전역 (예시)", "인플루언서 대행사·매니지먼트", "식음료 크리에이터 네트워크 · TikTok Shop 캠페인 (예시)", "예시 행 — 화면 확인용 가상 업체입니다"],
+      ["예시)", "예시) Sample UGC Studio", "ugc@example.com", "", "https://example.com", "미국 전역 (예시)", "UGC 광고 소재 제작 플랫폼", "마이크로 크리에이터 제품 시딩 (예시)", "예시 행 — 화면 확인용 가상 업체입니다"]
+    ]
+  }
+}

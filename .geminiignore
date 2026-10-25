@@ -1,0 +1,14 @@
+# Gemini CLI가 읽지 않을 파일 (RULE.md §10.2, 공통 영역)
+.env
+.env.*
+!.env.example
+instance/
+*.db
+*.sqlite3
+uploads/
+venv/
+.venv/
+credentials.json
+token.json
+client_secret*.json
+.playwright-mcp/

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}대시보드 로그인 · REBOOT{% endblock %}
+{% block body_class %}auth-body{% endblock %}
+{% block body %}
+<main class="auth-card" aria-labelledby="login-title">
+  <h1 id="login-title">대시보드 로그인</h1>
+  <p class="lead">브랜드의 다음 성장을 만드는<br>REBOOT 마케팅 워크스페이스</p>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, msg in messages %}
+      <p class="flash flash-{{ category }}" role="{{ 'alert' if category == 'error' else 'status' }}">{{ msg }}</p>
+    {% endfor %}
+  {% endwith %}
+
+  {% if no_users %}
+  <p class="flash flash-info">아직 등록된 계정이 없습니다. 관리자 계정을 먼저 만드세요:<br>
+    환경변수 <code>ADMIN_EMAIL</code>·<code>ADMIN_PASSWORD</code>를 넣고 다시 시작하거나,
+    터미널에서 <code>flask --app server create-user 이메일 --admin</code></p>
+  {% endif %}
+
+  <form method="post" novalidate id="login-form">
+    {{ form.hidden_tag() }}
+    <label class="field">
+      <span>{{ form.email.label.text }}</span>
+      {{ form.email(class_="input", type="email", autocomplete="username", required=true, maxlength=255, placeholder="admin@reboot.com", autofocus=true) }}
+    </label>
+    <label class="field">
+      <span>{{ form.password.label.text }}</span>
+      <span class="pw-wrap">
+        {{ form.password(class_="input", autocomplete="current-password", required=true, maxlength=128, placeholder="reboot2026!") }}
+        <button type="button" class="pw-toggle" id="pw-toggle" aria-label="비밀번호 보기" aria-pressed="false">보기</button>
+      </span>
+    </label>
+    <div class="auth-row">
+      <label class="check">{{ form.remember() }} 로그인 상태 유지</label>
+      <a href="{{ url_for('auth.forgot_password') }}">비밀번호 찾기</a>
+    </div>
+    <button type="submit" class="btn lime block" id="login-submit" style="padding:13px">로그인</button>
+  </form>
+  <p class="auth-note">팀 계정으로 로그인하세요.<br>계정은 관리자가 설정 › 계정에서 만듭니다.</p>
+</main>
+<p class="auth-foot">REBOOT GLOBAL MARKETING · WORKSPACE</p>
+<script>
+(function () {
+  'use strict';
+  var form = document.getElementById('login-form');
+  var pw = document.getElementById('password');
+  var toggle = document.getElementById('pw-toggle');
+  var submit = document.getElementById('login-submit');
+  {% if config.DEMO_LOGIN %}
+  /* 시연용: 관리자 계정을 미리 채움 (.env의 DEMO_LOGIN=1) */
+  var demoEmail = document.getElementById('email');
+  if (!demoEmail.value) demoEmail.value = 'admin@reboot.com';
+  if (!pw.value) pw.value = 'reboot2026!';
+  submit.focus();
+  {% endif %}
+  toggle.addEventListener('click', function () {
+    var show = pw.type === 'password';
+    pw.type = show ? 'text' : 'password';
+    toggle.textContent = show ? '숨기기' : '보기';
+    toggle.setAttribute('aria-pressed', String(show));
+    toggle.setAttribute('aria-label', show ? '비밀번호 숨기기' : '비밀번호 보기');
+  });
+  form.addEventListener('submit', function (e) {
+    var email = document.getElementById('email');
+    var bad = !email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    if (bad || !pw.value) {
+      e.preventDefault();
+      (bad ? email : pw).focus();
+      var msg = document.getElementById('client-msg');
+      if (!msg) { msg = document.createElement('p'); msg.id = 'client-msg'; msg.className = 'flash flash-error'; msg.setAttribute('role', 'alert'); form.insertBefore(msg, form.firstChild); }
+      msg.textContent = bad ? '올바른 이메일을 입력해 주세요.' : '비밀번호를 입력해 주세요.';
+      return;
+    }
+    submit.classList.add('is-busy');
+    submit.disabled = true;  /* 중복 제출 방지 */
+  });
+})();
+</script>
+{% endblock %}
